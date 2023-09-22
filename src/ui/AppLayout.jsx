@@ -5,10 +5,10 @@ import Sidebar from "./Sidebar";
 
 export default function AppLayout() {
   return (
-    <div className="grid grid-rows-[4rem_auto] grid-cols-12 h-screen">
+    <div className="grid h-screen grid-cols-12 grid-rows-[4rem_auto]">
       <Header />
       <Sidebar />
-      <main className="col-span-10 bg-medium overflow-y-scroll">
+      <main className="col-span-10 overflow-y-scroll bg-medium">
         <Outlet />
       </main>
     </div>

@@ -7,6 +7,8 @@ import SmartWatch from "./pages/SmartWatch";
 import Speaker from "./pages/Speaker";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
+import Cart from "./pages/Cart";
+import User from "./pages/User";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="smartWatches" element={<SmartWatch />} />
           <Route path="handsfrees" element={<Handsfree />} />
           <Route path="speakers" element={<Speaker />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="user" element={<User />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>

@@ -1,13 +1,13 @@
 import React from "react";
 import logo from "../assets/images/logo-light.png";
 import { Link, NavLink } from "react-router-dom";
-import { FaHome, FaMobileAlt, } from "react-icons/fa";
+import { FaHome, FaMobileAlt } from "react-icons/fa";
 import { FaHeadphones } from "react-icons/fa6";
 import { IoWatch, IoTabletPortraitSharp } from "react-icons/io5";
 import { PiSpeakerHifiFill } from "react-icons/pi";
 export default function Sidebar() {
   return (
-    <div className="col-span-2 col-start-1 border-l-2 flex flex-col items-center py-5">
+    <div className="col-span-2 col-start-1 flex flex-col items-center border-l-2 py-5">
       <Link to="home">
         <img alt="logo" src={logo} className="w-28"></img>
       </Link>
