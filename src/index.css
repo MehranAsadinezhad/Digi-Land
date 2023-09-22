@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Vazir;
+  src: url("assets/fonts/Vazir.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Codystar;
+  src: url("assets/fonts/Codystar-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Shabnam;
+  src: url("assets/fonts/Shabnam.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: shabnamBold;
+  src: url("assets/fonts/Shabnam-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: skranji;
+  src: url("assets/fonts/Skranji-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: skranjiBold;
+  src: url("assets/fonts/Skranji-Bold.ttf") format("truetype");
+}
+
+body {
+  font-family: shabnam;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a.active{
+  color: #00A0F6;
+  border-bottom: 2px solid #00A0F6;
+}
+
+@layer components {
+  /* HTML: <div class="loader"></div> */
+  .loader {
+    width: 45px;
+    aspect-ratio: 0.75;
+    --c: no-repeat linear-gradient(theme(colors.dark) 0 0);
+    background:
+      var(--c) 0% 100%,
+      var(--c) 50% 100%,
+      var(--c) 100% 100%;
+    background-size: 20% 65%;
+    animation: l5 1s infinite linear;
+  }
+  @keyframes l5 {
+    20% {
+      background-position:
+        0% 50%,
+        50% 100%,
+        100% 100%;
+    }
+    40% {
+      background-position:
+        0% 0%,
+        50% 50%,
+        100% 100%;
+    }
+    60% {
+      background-position:
+        0% 100%,
+        50% 0%,
+        100% 50%;
+    }
+    80% {
+      background-position:
+        0% 100%,
+        50% 100%,
+        100% 0%;
+    }
+  }
+}
