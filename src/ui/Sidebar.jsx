@@ -7,7 +7,7 @@ import { IoWatch, IoTabletPortraitSharp } from "react-icons/io5";
 import { PiSpeakerHifiFill } from "react-icons/pi";
 export default function Sidebar() {
   return (
-    <div className="col-span-2 col-start-1 flex flex-col items-center py-5">
+    <div className="col-span-2 col-start-1 border-l-2 flex flex-col items-center py-5">
       <Link to="home">
         <img alt="logo" src={logo} className="w-28"></img>
       </Link>
@@ -21,7 +21,7 @@ export default function Sidebar() {
           </NavLink>
         </li>
         <li className="hover:bg-lightGrey rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:text-dark">
-          <NavLink to="mobile" className="flex items-center gap-x-3">
+          <NavLink to="mobiles" className="flex items-center gap-x-3">
             <span>
               <FaMobileAlt />
             </span>
@@ -29,7 +29,7 @@ export default function Sidebar() {
           </NavLink>
         </li>
         <li className="hover:bg-lightGrey rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:text-dark">
-          <NavLink to="tablet" className="flex items-center gap-x-3">
+          <NavLink to="tablets" className="flex items-center gap-x-3">
             <span>
               <IoTabletPortraitSharp />
             </span>
@@ -37,7 +37,7 @@ export default function Sidebar() {
           </NavLink>
         </li>
         <li className="hover:bg-lightGrey rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:text-dark">
-          <NavLink to="smartWatch" className="flex items-center gap-x-3">
+          <NavLink to="smartWatches" className="flex items-center gap-x-3">
             <span>
               <IoWatch />
             </span>
@@ -45,7 +45,7 @@ export default function Sidebar() {
           </NavLink>
         </li>
         <li className="hover:bg-lightGrey rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:text-dark">
-          <NavLink to="handsfree" className="flex items-center gap-x-3">
+          <NavLink to="handsfrees" className="flex items-center gap-x-3">
             <span>
               <FaHeadphones />
             </span>
@@ -53,7 +53,7 @@ export default function Sidebar() {
           </NavLink>
         </li>
         <li className="hover:bg-lightGrey rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:text-dark">
-          <NavLink to="speaker" className="flex items-center gap-x-3">
+          <NavLink to="speakers" className="flex items-center gap-x-3">
             <span>
               <PiSpeakerHifiFill className="text-2xl" />
             </span>
