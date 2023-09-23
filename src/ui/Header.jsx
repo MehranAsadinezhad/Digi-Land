@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaUser, FaCartShopping } from "react-icons/fa6";
 
 export default function Header() {
@@ -11,16 +11,22 @@ export default function Header() {
         </Link>
         <input
           placeholder="جستجو"
-          className="bg-lightGrey w-80 rounded-lg px-5 py-2 outline-none transition-all duration-200 focus:w-96 focus:ring-2 focus:ring-primary"
+          className="w-80 rounded-lg bg-lightGrey px-5 py-2 outline-none transition-all duration-200 focus:w-96 focus:ring-2 focus:ring-primary"
         ></input>
       </div>
       <div className="flex items-center gap-x-10">
-        <Link className="hover:bg-lightGrey rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:text-dark">
+        <NavLink
+          to="user"
+          className="rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
+        >
           <FaUser />
-        </Link>
-        <Link className="hover:bg-lightGrey rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:text-dark">
+        </NavLink>
+        <NavLink
+          to="cart"
+          className="rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
+        >
           <FaCartShopping />
-        </Link>
+        </NavLink>
       </div>
     </header>
   );
