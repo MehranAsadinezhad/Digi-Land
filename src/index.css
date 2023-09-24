@@ -42,48 +42,25 @@ body {
   box-sizing: border-box;
 }
 
-a.active{
-  color: #00A0F6;
-  border-bottom: 2px solid #00A0F6;
+a.active {
+  color: #00a0f6;
+  border-bottom: 2px solid #00a0f6;
 }
 
 @layer components {
   /* HTML: <div class="loader"></div> */
+  /* HTML: <div class="loader"></div> */
   .loader {
-    width: 45px;
-    aspect-ratio: 0.75;
-    --c: no-repeat linear-gradient(theme(colors.dark) 0 0);
-    background:
-      var(--c) 0% 100%,
-      var(--c) 50% 100%,
-      var(--c) 100% 100%;
-    background-size: 20% 65%;
-    animation: l5 1s infinite linear;
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid;
+    border-color: #030712 #00A0F6;
+    animation: l1 1s infinite;
   }
-  @keyframes l5 {
-    20% {
-      background-position:
-        0% 50%,
-        50% 100%,
-        100% 100%;
-    }
-    40% {
-      background-position:
-        0% 0%,
-        50% 50%,
-        100% 100%;
-    }
-    60% {
-      background-position:
-        0% 100%,
-        50% 0%,
-        100% 50%;
-    }
-    80% {
-      background-position:
-        0% 100%,
-        50% 100%,
-        100% 0%;
+  @keyframes l1 {
+    to {
+      transform: rotate(0.5turn);
     }
   }
 }
