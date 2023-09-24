@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/homeImagesSlider.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, A11y, EffectFade } from "swiper/modules";
+import {
+  Navigation,
+  Pagination,
+  A11y,
+  EffectFade,
+  Autoplay,
+} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -21,21 +27,25 @@ export default function Home() {
     queryKey: ["home"],
     queryFn: getHomeImages,
   });
-  console.log(homeImages);
-
+  const [count, setCount] = useState(1);
   if (isLoading) return <Loader />;
   return (
     <>
       <div>
         <Swiper
           className="homeImagesSlider"
-          modules={[Navigation, Pagination, A11y, EffectFade]}
+          modules={[Navigation, Pagination, A11y, EffectFade, Autoplay]}
           effect={"fade"}
           spaceBetween={50}
           slidesPerView={1}
           navigation={true}
           // pagination={{ clickable: true }}
-          onSlideChange={() => console.log("slide change")}
+          speed={1000}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          onSlideChange={() => {}}
           onSwiper={(swiper) => console.log(swiper)}
         >
           {homeImages.map((image) => (
