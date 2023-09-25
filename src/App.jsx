@@ -11,6 +11,7 @@ import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
 import Cart from "./pages/Cart";
 import User from "./pages/User";
+import Product from "./pages/Product";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,23 +25,24 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools initialIsOpen={false}/>
-          <BrowserRouter>
-            <Routes>
-              <Route element={<AppLayout />}>
-                <Route index element={<Navigate replace to="home" />} />
-                <Route path="home" element={<Home />} />
-                <Route path="mobiles" element={<Mobiles />} />
-                <Route path="tablets" element={<Tablets />} />
-                <Route path="smartWatches" element={<SmartWatches />} />
-                <Route path="handsfrees" element={<Handsfrees />} />
-                <Route path="speakers" element={<Speakers />} />
-                <Route path="cart" element={<Cart />} />
-                <Route path="user" element={<User />} />
-              </Route>
-              <Route path="*" element={<PageNotFound />} />
-            </Routes>
-          </BrowserRouter>
+        <ReactQueryDevtools initialIsOpen={false} />
+        <BrowserRouter>
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route index element={<Navigate replace to="home" />} />
+              <Route path="home" element={<Home />} />
+              <Route path="mobiles" element={<Mobiles />} />
+              <Route path="tablets" element={<Tablets />} />
+              <Route path="smartWatches" element={<SmartWatches />} />
+              <Route path="handsfrees" element={<Handsfrees />} />
+              <Route path="speakers" element={<Speakers />} />
+              <Route path="cart" element={<Cart />} />
+              <Route path="user" element={<User />} />
+              <Route path="product/:productName" element={<Product />} />
+            </Route>
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </BrowserRouter>
       </QueryClientProvider>
     </>
   );
