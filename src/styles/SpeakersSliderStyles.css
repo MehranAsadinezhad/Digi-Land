@@ -1,9 +1,9 @@
-.mobilesSliderStyles {
+.speakersSliderStyles {
   .swiper-slide {
   }
   .swiper-button-prev {
     color: #030712;
-    background-color: #FDA4AF;
+    background-color: #86EFAC;
     height: 60px;
     width: 60px;
     border-radius: 50px;
@@ -17,7 +17,7 @@
   }
   .swiper-button-next {
     color: #030712;
-    background-color: #FDA4AF;
+    background-color: #86EFAC;
     height: 60px;
     width: 60px;
     margin: -40px 5px;
@@ -35,7 +35,7 @@
   }
   .swiper-button-next:hover,
   .swiper-button-prev:hover {
-    background-color: rgb(227, 136, 147);
+    background-color: #69d792;
   }
   .swiper-horizontal > .swiper-pagination-bullets,
   .swiper-pagination-bullets.swiper-pagination-horizontal {

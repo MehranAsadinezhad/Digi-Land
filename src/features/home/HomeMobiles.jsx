@@ -16,10 +16,10 @@ export default function HomeMobiles() {
   });
   if (isLoading) return <Loader />;
   return (
-    <div className="my-5 h-[500px] w-full rounded-3xl bg-greenn px-8 py-5">
+    <div className="my-5 h-[500px] w-full rounded-3xl bg-secondary px-8 py-5">
       <div className="flex flex-col gap-y-2">
-        <h1 className="text-2xl text-medium">موبایل ها</h1>
-        <div className="border-b-2 border-medium"></div>
+        <h1 className="text-2xl text-dark">موبایل ها</h1>
+        <div className="border-b-2 border-dark"></div>
       </div>
       <div>
         <MobilesSlider mobiles={mobiles}/>

@@ -4,6 +4,7 @@ import Loader from "../ui/loader";
 import HomeSlider from "../features/home/HomeSlider";
 import HomeMobiles from "../features/home/HomeMobiles";
 import Advertise from "../ui/Advertise";
+import HomeTablets from "../features/home/HomeTablets";
 
 export default function Home() {
   const {
@@ -18,9 +19,10 @@ export default function Home() {
   if (isLoading) return <Loader />;
   return (
     <>
-        <HomeSlider homeImages={homeImages}/>
-        <HomeMobiles/>
-      <Advertise homeImages={homeImages}/>
+      <HomeSlider homeImages={homeImages} />
+      <HomeMobiles />
+      <Advertise homeImages={homeImages} />
+      <HomeTablets />
     </>
   );
 }
