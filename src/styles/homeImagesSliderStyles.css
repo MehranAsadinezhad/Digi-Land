@@ -4,8 +4,8 @@
   .swiper-button-prev {
     color: #00a0f6;
     background-color: #e5e7eb;
-    height: 60px;
-    width: 60px;
+    height: 55px;
+    width: 55px;
     border-radius: 50px;
     margin: 0 5px;
     -webkit-border-radius: 50px;
@@ -18,8 +18,8 @@
   .swiper-button-next {
     color: #00a0f6;
     background-color: #e5e7eb;
-    height: 60px;
-    width: 60px;
+    height: 55px;
+    width: 55px;
     margin: 0 5px;
     border-radius: 50px;
     -webkit-border-radius: 50px;
