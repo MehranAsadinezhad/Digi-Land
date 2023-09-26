@@ -2,7 +2,7 @@ import React from "react";
 
 export default function FilterProducts() {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center gap-x-3">
       <select>
         <option></option>
       </select>

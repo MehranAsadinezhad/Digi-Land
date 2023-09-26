@@ -15,7 +15,7 @@ export default function HomeTablets() {
   });
   if (isLoading) return <Loader />;
   return (
-    <div className="my-5 h-[500px] w-full rounded-3xl bg-orange-200 px-8 py-5">
+    <div className="my-5 h-[500px] w-full rounded-3xl bg-yellow-200 px-8 py-5">
       <div className="flex flex-col gap-y-2">
         <h1 className="text-2xl text-dark">اسپیکر</h1>
         <div className="border-b-2 border-dark"></div>

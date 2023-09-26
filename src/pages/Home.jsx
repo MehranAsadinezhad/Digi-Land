@@ -7,7 +7,7 @@ import Advertise from "../ui/Advertise";
 import HomeTablets from "../features/home/HomeTablets";
 import HomeSpeakers from "../features/home/HomeSpeakers";
 import SecondAdvertise from "../ui/SecondAdvertise";
-import SmartWatches from "../features/home/HomeSmartWatches";
+import  Footer from "../features/footer/Footer";
 import HomeSmartWatches from "../features/home/HomeSmartWatches";
 import HomeHandsfrees from "../features/home/HomeHandsfrees";
 
@@ -34,6 +34,7 @@ export default function Home() {
       <HomeSmartWatches />
       <SecondAdvertise homeImages={homeImages} />
       <HomeHandsfrees />
+      <Footer/>
     </>
   );
 }
