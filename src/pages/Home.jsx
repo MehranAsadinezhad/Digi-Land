@@ -5,6 +5,10 @@ import HomeSlider from "../features/home/HomeSlider";
 import HomeMobiles from "../features/home/HomeMobiles";
 import Advertise from "../ui/Advertise";
 import HomeTablets from "../features/home/HomeTablets";
+import HomeSpeakers from "../features/home/HomeSpeakers";
+import SecondAdvertise from "../ui/SecondAdvertise";
+import SmartWatches from "../features/home/HomeSmartWatches";
+import HomeSmartWatches from "../features/home/HomeSmartWatches";
 
 export default function Home() {
   const {
@@ -23,6 +27,10 @@ export default function Home() {
       <HomeMobiles />
       <Advertise homeImages={homeImages} />
       <HomeTablets />
+      <SecondAdvertise homeImages={homeImages} />
+      <HomeSpeakers />
+      <Advertise homeImages={homeImages} />
+      <HomeSmartWatches />
     </>
   );
 }

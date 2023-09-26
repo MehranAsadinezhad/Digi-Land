@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Mobiles from "./pages/Mobiles";
 import Tablets from "./pages/Tablets";
 import Handsfrees from "./pages/Handsfrees";
-import SmartWatches from "./pages/SmartWatches";
+import SmartWatches from "./features/home/HomeSmartWatches";
 import Speakers from "./pages/Speakers";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";

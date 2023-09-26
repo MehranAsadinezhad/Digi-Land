@@ -1,26 +1,26 @@
-.speakersSliderStyles {
+.smartWacthesStyles {
   .swiper-slide {
   }
   .swiper-button-prev {
     color: #030712;
-    background-color: rgb(253 186 116 / var(--tw-bg-opacity));
+    background-color: #D8B4FE;
     height: 60px;
     width: 60px;
     border-radius: 50px;
-    margin: -40px 5px;
+    margin: 0 5px;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     -ms-border-radius: 50px;
     -o-border-radius: 50px;
     transition: 0.2s;
-    box-shadow: 5px 2px 10px rgb(51, 51, 51);
+        box-shadow: 5px 2px 10px rgb(51, 51, 51);
   }
   .swiper-button-next {
     color: #030712;
-    background-color: #FDBA74;
+    background-color: #D8B4FE;
     height: 60px;
     width: 60px;
-    margin: -40px 5px;
+    margin: 0 5px;
     border-radius: 50px;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
@@ -31,11 +31,11 @@
     -moz-transition: 0.2s;
     -ms-transition: 0.2s;
     -o-transition: 0.2s;
-    box-shadow: -5px 2px 10px rgb(51, 51, 51);
+        box-shadow: -5px 2px 10px rgb(51, 51, 51);
   }
   .swiper-button-next:hover,
   .swiper-button-prev:hover {
-    background-color: #d59652;
+    background-color: #a070d2;
   }
   .swiper-horizontal > .swiper-pagination-bullets,
   .swiper-pagination-bullets.swiper-pagination-horizontal {
