@@ -1,13 +1,13 @@
-.smartWacthesStyles {
+.handsfreesSliderStyles {
   .swiper-slide {
   }
   .swiper-button-prev {
     color: #030712;
-    background-color: #D8B4FE;
+    background-color: #BEF264;
     height: 60px;
     width: 60px;
     border-radius: 50px;
-     margin: -40px 5px;
+   margin: -40px 5px;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     -ms-border-radius: 50px;
@@ -17,7 +17,7 @@
   }
   .swiper-button-next {
     color: #030712;
-    background-color: #D8B4FE;
+    background-color: #BEF264;
     height: 60px;
     width: 60px;
    margin: -40px 5px;
@@ -35,7 +35,7 @@
   }
   .swiper-button-next:hover,
   .swiper-button-prev:hover {
-    background-color: #a070d2;
+    background-color: #97ca3e;
   }
   .swiper-horizontal > .swiper-pagination-bullets,
   .swiper-pagination-bullets.swiper-pagination-horizontal {

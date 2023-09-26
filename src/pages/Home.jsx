@@ -9,6 +9,7 @@ import HomeSpeakers from "../features/home/HomeSpeakers";
 import SecondAdvertise from "../ui/SecondAdvertise";
 import SmartWatches from "../features/home/HomeSmartWatches";
 import HomeSmartWatches from "../features/home/HomeSmartWatches";
+import HomeHandsfrees from "../features/home/HomeHandsfrees";
 
 export default function Home() {
   const {
@@ -31,6 +32,8 @@ export default function Home() {
       <HomeSpeakers />
       <Advertise homeImages={homeImages} />
       <HomeSmartWatches />
+      <SecondAdvertise homeImages={homeImages} />
+      <HomeHandsfrees />
     </>
   );
 }
