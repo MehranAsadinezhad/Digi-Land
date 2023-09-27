@@ -8,8 +8,6 @@ import { A11y, Navigation, Pagination } from 'swiper/modules';
 import "../../styles/mobilesSliderStyles.css";
 
 export default function MobilesSlider({mobiles}) {
-    // if (isLoading) return <Loader />;
-    console.log(mobiles);
   return (
       <SwiperComponent className='mobilesSliderStyles'
           modules={[Navigation, Pagination, A11y]}

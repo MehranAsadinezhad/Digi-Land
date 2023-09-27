@@ -5,13 +5,14 @@ import Home from "./pages/Home";
 import Mobiles from "./pages/Mobiles";
 import Tablets from "./pages/Tablets";
 import Handsfrees from "./pages/Handsfrees";
-import SmartWatches from "./features/home/HomeSmartWatches";
+import SmartWatches from "./pages/SmartWatches";
 import Speakers from "./pages/Speakers";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
 import Cart from "./pages/Cart";
 import User from "./pages/User";
 import Product from "./pages/Product";
+import ScrollUpButton from "./ui/ScrollUpButton";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,7 +26,7 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools initialIsOpen={false} />
+        <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
         <BrowserRouter>
           <Routes>
             <Route element={<AppLayout />}>
@@ -43,6 +44,7 @@ function App() {
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
+        <ScrollUpButton/>
       </QueryClientProvider>
     </>
   );
