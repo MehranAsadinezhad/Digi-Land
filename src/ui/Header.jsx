@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header className="col-span-12 flex items-center justify-between border-b-2 bg-white px-8">
       <div className="flex items-center gap-x-10">
-        <Link className="p-2 tracking-wider font-skranjiBold text-2xl text-grey transition-colors duration-300 hover:text-dark">
+        <Link to="/home" className="p-2 tracking-wider font-skranjiBold text-2xl text-grey transition-colors duration-300 hover:text-dark">
           DIGI LAND
         </Link>
         <input

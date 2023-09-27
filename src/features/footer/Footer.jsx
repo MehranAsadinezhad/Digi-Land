@@ -4,9 +4,12 @@ import { FaInstagram, FaGithubAlt } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <div className="border-t-2 flex items-center justify-center p-3">
+    <div className="flex items-center justify-center border-t-2 p-3">
       <div className="flex items-center gap-x-3">
-        <Link className="p-2 font-skranjiBold text-2xl text-grey transition-colors duration-300 hover:text-primary">
+        <Link
+          to="/home"
+          className="p-2 font-skranjiBold text-2xl text-grey transition-colors duration-300 hover:text-primary"
+        >
           DIGI LAND
         </Link>
         <h1 className="text-lg">با من در ارتباط باشید</h1>

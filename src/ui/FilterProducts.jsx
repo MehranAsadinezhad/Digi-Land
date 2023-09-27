@@ -8,11 +8,14 @@ export default function FilterProducts({ products }) {
           فیلتر برند:{" "}
         </label>
         <select className="cursor-pointer rounded-lg bg-primary px-2 py-1 text-center text-lg text-medium">
-          <option value="" className="bg-medium text-center text-dark">
-            Volvo
+          <option value="اپل" className="bg-medium text-center text-dark">
+            اپل
           </option>
-          <option value="" className="bg-medium text-center text-dark">
-            Saab
+          <option value="سامسونگ" className="bg-medium text-center text-dark">
+            سامسونگ
+          </option>
+          <option value="شیائومی" className="bg-medium text-center text-dark">
+            شیائومی
           </option>
         </select>
       </form>
