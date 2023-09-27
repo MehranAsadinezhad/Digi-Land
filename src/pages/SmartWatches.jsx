@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import FilterProducts from "../ui/FilterProducts";
 import { useQuery } from "@tanstack/react-query";
 import Card from "../ui/card";
@@ -14,12 +14,13 @@ export default function SmartWatches() {
     queryKey: ["smartWatches"],
     queryFn: getSmartWatches,
   });
+  const [sorted, setSorted] = useState(smartWatches);
   return (
     <div className="mx-3 my-5 rounded-xl border-2 flex flex-col flex-wrap">
-      <FilterProducts products={smartWatches} />
+      <FilterProducts products={smartWatches} setSorted={setSorted} />
       <div className="grid w-full place-items-center gap-10 grid-cols-4 px-3">
-        {smartWatches.map((watches) => (
-          <Card data={watches} />
+        {sorted.map((watches) => (
+          <Card  key={watches.id} data={watches} />
         ))}
       </div>
       <Footer/>

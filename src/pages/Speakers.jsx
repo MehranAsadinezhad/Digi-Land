@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import FilterProducts from "../ui/FilterProducts";
 import { useQuery } from "@tanstack/react-query";
@@ -15,12 +15,13 @@ export default function Speakers() {
     queryKey: ["speakers"],
     queryFn: getSpeakers,
   });
+  const [sorted, setSorted] = useState(speakers);
   return (
     <div className="mx-3 my-5 rounded-xl border-2 flex flex-col flex-wrap">
-      <FilterProducts products={speakers} />
+      <FilterProducts products={speakers} setSorted={setSorted} />
       <div className="grid w-full place-items-center gap-10 grid-cols-4 px-3">
-        {speakers.map((speaker) => (
-          <Card data={speaker} />
+        {sorted.map((speaker) => (
+          <Card key={speaker.id} data={speaker} />
         ))}
       </div>
       <Footer />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { getMobiles } from "../services/apiMobiles";
 import FilterProducts from "../ui/FilterProducts";
 import { useQuery } from "@tanstack/react-query";
@@ -14,12 +14,13 @@ export default function Mobiles() {
     queryKey: ["mobiles"],
     queryFn: getMobiles,
   });
+  const [sorted, setSorted] = useState(mobiles);
   return (
     <div className="mx-3 my-5 rounded-xl border-2 flex flex-col flex-wrap">
-      <FilterProducts products={mobiles} />
+      <FilterProducts products={sorted} setSorted={setSorted }/>
       <div className="grid w-full place-items-center gap-10 grid-cols-4 px-3">
-        {mobiles.map((mobile) => (
-          <Card data={mobile} />
+        {sorted.map((mobile) => (
+          <Card key={mobile.id} data={mobile} />
         ))}
       </div>
       <Footer/>
