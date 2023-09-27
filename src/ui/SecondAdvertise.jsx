@@ -12,10 +12,10 @@ export default function SecondAdvertise({homeImages}) {
                 onClick={() => navigate(`/${homeImages[2].title}`)}
             ></img>
             <img
-                src={homeImages[3].image}
+                src={homeImages[5].image}
                 alt="secondImg"
                 className="w-2/4 cursor-pointer rounded-xl"
-                onClick={() => navigate(`/${homeImages[3].title}`)}
+                onClick={() => navigate(`/${homeImages[5].title}`)}
             ></img>
         </div>
     );
