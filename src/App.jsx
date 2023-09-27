@@ -39,7 +39,7 @@ function App() {
               <Route path="speakers" element={<Speakers />} />
               <Route path="cart" element={<Cart />} />
               <Route path="user" element={<User />} />
-              <Route path="product/:productName" element={<Product />} />
+              <Route path="product/:productId" element={<Product />} />
             </Route>
             <Route path="*" element={<PageNotFound />} />
           </Routes>

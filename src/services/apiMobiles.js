@@ -9,15 +9,4 @@ export async function getMobiles() {
   return data;
 }
 
-export async function sortMobiles() {
-  const { data, error } = await supabase
-    .from("mobiles")
-    .update({ other_column: "otherValue" })
-    .eq("some_column", "someValue")
-    .select();
-  if (error) {
-    console.log(error);
-    throw new Error("mobiles not found");
-  }
-  return data;
-}
+
