@@ -17,11 +17,14 @@ export default function Handsfrees() {
   });
   const [sorted, setSorted] = useState(tablets);
   return (
-    <div className="mx-3 my-5 rounded-xl border-2 flex flex-col flex-wrap">
+    <div className="mx-3 my-5 flex flex-col flex-wrap rounded-xl border-2">
       <FilterProducts products={tablets} setSorted={setSorted} />
-      <div className="grid w-full place-items-center gap-10 grid-cols-4 px-3">
+      <div className="grid w-full grid-cols-4 place-items-center gap-10 px-3">
         {sorted.map((tablet) => (
-          <Card key={tablet.id} data={tablet} />
+          <Card
+            key={tablet.id}
+            data={tablet}
+          />
         ))}
       </div>
       <Footer />

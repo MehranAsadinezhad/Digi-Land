@@ -75,70 +75,70 @@ export default function Product() {
           </p>
           <ul className="flex flex-col gap-2 text-lg text-grey">
             {theProduct?.cpu && (
-              <li className="flex items-center pb-2 gap-x-3 border-b-2 border-lightGrey">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2">
                 <BsCpu />
                 <span>پردازنده / {theProduct.cpu}</span>
               </li>
             )}
             {theProduct?.screen && (
-              <li className="flex items-center pb-2 gap-x-3 border-b-2 border-lightGrey">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2">
                 <BsFullscreenExit />
                 <span>صفحه نمایش / {theProduct?.screen} اینچ</span>
               </li>
             )}
             {theProduct?.speaker && (
-              <li className="flex items-center pb-2 gap-x-3 border-b-2 border-lightGrey">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2">
                 <BsSpeaker />
                 <span>{theProduct?.speaker}</span>
               </li>
             )}
             {theProduct?.ram && (
-              <li className="flex items-center pb-2 gap-x-3 border-b-2 border-lightGrey"></li>
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2"></li>
             )}
             {theProduct?.mainCamera && (
-              <li className="flex items-center pb-2 gap-x-3 border-b-2 border-lightGrey">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2">
                 <BsDiagram3 />
                 <span>رم / {theProduct?.ram} گیگابایت رم</span>
               </li>
             )}
             {theProduct?.selfieCamera && (
-              <li className="flex items-center pb-2 gap-x-3 border-b-2 border-lightGrey">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2">
                 <FaCamera />
                 <span>دوربین اصلی / {theProduct?.mainCamera} مگا پیکسل</span>
               </li>
             )}
             {theProduct?.battery && (
-              <li className="flex items-center pb-2 gap-x-3 border-b-2 border-lightGrey">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2">
                 <FaBatteryFull />
                 <span>باتری / {theProduct?.battery} میلی آمپر ساعت</span>
               </li>
             )}
             {theProduct?.resistance && (
-              <li className="flex items-center pb-2 gap-x-3 border-b-2 border-lightGrey">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2">
                 <BsFullscreenExit />
                 <span>مقاومت / {theProduct?.resistance}</span>
               </li>
             )}
             {theProduct?.storage && (
-              <li className="flex items-center pb-2 gap-x-3 border-b-2 border-lightGrey">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2">
                 <MdSdStorage />
                 <span>حافظه ی داخلی / {theProduct?.storage} گیگابایت</span>
               </li>
             )}
             {theProduct?.weight && (
-              <li className="flex items-center pb-2 gap-x-3 border-b-2 border-lightGrey">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2">
                 <FaWeightHanging />
                 <span>وزن / {theProduct?.weight}</span>
               </li>
             )}
             {theProduct?.call && (
-              <li className="flex items-center pb-2 gap-x-3 border-b-2 border-lightGrey">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2">
                 <BsFillTelephoneForwardFill />
                 <span>قابلیت تماس / {theProduct?.call ? "دارد" : "ندارد"}</span>
               </li>
             )}
             {theProduct?.bluetooth && (
-              <li className="flex items-center pb-2 gap-x-3 border-b-2 border-lightGrey">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2">
                 <FaBluetooth />
                 <span>بلوتوث / {theProduct?.bluetooth} ورژن</span>
               </li>

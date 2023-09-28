@@ -16,15 +16,17 @@ export default function Handsfrees() {
   });
   const [sorted, setSorted] = useState(handsfrees);
   return (
-    <div className="mx-3 my-5 rounded-xl border-2 flex flex-col flex-wrap">
+    <div className="mx-3 my-5 flex flex-col flex-wrap rounded-xl border-2">
       <FilterProducts products={handsfrees} setSorted={setSorted} />
-      <div className="grid w-full place-items-center gap-10 grid-cols-4 px-3">
+      <div className="grid w-full grid-cols-4 place-items-center gap-10 px-3">
         {sorted.map((handsfree) => (
-          <Card key={handsfree.id} data={handsfree} />
+          <Card
+            key={handsfree.id}
+            data={handsfree}
+          />
         ))}
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
-
