@@ -13,7 +13,7 @@ export default function Sidebar() {
       </Link>
       <ul className="flex flex-col items-center gap-y-3 py-5">
         <li className="hover:bg-lightGrey rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:text-dark">
-          <NavLink to="home" className="flex items-center gap-x-3">
+          <NavLink to="/" className="flex items-center gap-x-3">
             <span>
               <FaHome />
             </span>

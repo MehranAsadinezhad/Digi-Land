@@ -1,12 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { separate } from "../utils/helpers";
 import { useParams } from "react-router-dom";
-import { getSpeakers } from "../services/apiSpeakers";
-import { getMobiles } from "../services/apiMobiles";
-import { getTablets } from "../services/apiTablets";
-import { getHandsfree } from "../services/apiHandsfree";
-import { getSmartWatches } from "../services/apiSmartWatches";
 import {
   FaCamera,
   FaBatteryFull,
@@ -20,7 +14,6 @@ import {
   BsSpeaker,
   BsDiagram3,
   BsFillTelephoneForwardFill,
-  BsSpeakerFill,
 } from "react-icons/bs";
 import {
   MdSdStorage,
@@ -29,29 +22,20 @@ import {
   MdPriceChange,
 } from "react-icons/md";
 import CartButton from "../ui/CartButton";
+import { getMobiles } from "../services/apiMobiles";
+import { getTablets } from "../services/apiTablets";
+import { getHandsfree } from "../services/apiHandsfree";
+import { getSpeakers } from "../services/apiSpeakers";
+import { getSmartWatches } from "../services/apiSmartWatches";
+
+const mobiles = await getMobiles();
+const tablets = await getTablets();
+const handsfrees = await getHandsfree();
+const speakers = await getSpeakers();
+const smartWatches = await getSmartWatches();
 
 export default function Product() {
   const { productId } = useParams();
-  const { data: speakers } = useQuery({
-    queryKey: ["speakers"],
-    queryFn: getSpeakers,
-  });
-  const { data: mobiles } = useQuery({
-    queryKey: ["mobiles"],
-    queryFn: getMobiles,
-  });
-  const { data: tablets } = useQuery({
-    queryKey: ["tablets"],
-    queryFn: getTablets,
-  });
-  const { data: handsfrees } = useQuery({
-    queryKey: ["handsfrees"],
-    queryFn: getHandsfree,
-  });
-  const { data: smartWatches } = useQuery({
-    queryKey: ["smartWatches"],
-    queryFn: getSmartWatches,
-  });
   const products = [mobiles, tablets, handsfrees, speakers, smartWatches];
   const product = products.map((all) =>
     all.filter((product) => product.id === Number(productId)),

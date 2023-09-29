@@ -1,20 +1,12 @@
 import React, { useState } from "react";
-
 import FilterProducts from "../ui/FilterProducts";
-import { useQuery } from "@tanstack/react-query";
 import Card from "../ui/card";
 import Footer from "../features/footer/Footer";
 import { getTablets } from "../services/apiTablets";
+import { useLoaderData } from "react-router-dom";
 
 export default function Handsfrees() {
-  const {
-    data: tablets,
-    isLoading,
-    error,
-  } = useQuery({
-    queryKey: ["tablets"],
-    queryFn: getTablets,
-  });
+  const tablets = useLoaderData();
   const [sorted, setSorted] = useState(tablets);
   return (
     <div className="mx-3 my-5 flex flex-col flex-wrap rounded-xl border-2">
@@ -30,4 +22,9 @@ export default function Handsfrees() {
       <Footer />
     </div>
   );
+}
+
+export async function loader() {
+  const tablets = await getTablets();
+  return tablets;
 }

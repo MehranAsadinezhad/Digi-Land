@@ -1,19 +1,12 @@
 import React, { useState } from "react";
 import FilterProducts from "../ui/FilterProducts";
-import { useQuery } from "@tanstack/react-query";
 import Card from "../ui/card";
 import { getSmartWatches } from "../services/apiSmartWatches";
 import Footer from "../features/footer/Footer";
+import { useLoaderData } from "react-router-dom";
 
 export default function SmartWatches() {
-  const {
-    data: smartWatches,
-    isLoading,
-    error,
-  } = useQuery({
-    queryKey: ["smartWatches"],
-    queryFn: getSmartWatches,
-  });
+  const smartWatches = useLoaderData();
   const [sorted, setSorted] = useState(smartWatches);
   return (
     <div className="mx-3 my-5 flex flex-col flex-wrap rounded-xl border-2">
@@ -29,4 +22,9 @@ export default function SmartWatches() {
       <Footer />
     </div>
   );
+}
+
+export async function loader() {
+  const smartWatches = await getSmartWatches();
+  return smartWatches;
 }

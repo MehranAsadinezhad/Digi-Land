@@ -1,139 +1,87 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Home from "./pages/Home";
-import Mobiles from "./pages/Mobiles";
-import Tablets from "./pages/Tablets";
-import Handsfrees from "./pages/Handsfrees";
-import SmartWatches from "./pages/SmartWatches";
-import Speakers from "./pages/Speakers";
+import {
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
+// import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Home, { loader as homeLoader } from "./pages/Home";
+import Mobiles, { loader as mobiles } from "./pages/Mobiles";
+import Tablets, { loader as tablets } from "./pages/Tablets";
+import Handsfrees, { loader as handsfrees } from "./pages/Handsfrees";
+import SmartWatches, { loader as smartWatches } from "./pages/SmartWatches";
+import Speakers, { loader as speakers } from "./pages/Speakers";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
 import Cart from "./pages/Cart";
 import User from "./pages/User";
+import Error from "./ui/Error";
 import Product from "./pages/Product";
-import ScrollUpButton from "./ui/ScrollUpButton";
-import { useState } from "react";
+// import ScrollUpButton from "./ui/ScrollUpButton";
 import { Toaster } from "react-hot-toast";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 60 * 1000,
-    },
+const router = createBrowserRouter([
+  {
+    element: <AppLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+        loader: homeLoader,
+        errorElement: <Error />,
+      },
+      {
+        path: "/mobiles",
+        element: <Mobiles />,
+        loader: mobiles,
+        errorElement: <Error />,
+      },
+      {
+        path: "/tablets",
+        element: <Tablets />,
+        loader: tablets,
+        errorElement: <Error />,
+      },
+      {
+        path: "/smartWatches",
+        element: <SmartWatches />,
+        loader: smartWatches,
+        errorElement: <Error />,
+      },
+      {
+        path: "/speakers",
+        element: <Speakers />,
+        loader: speakers,
+        errorElement: <Error />,
+      },
+      {
+        path: "/handsfrees",
+        element: <Handsfrees />,
+        loader: handsfrees,
+        errorElement: <Error />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+        errorElement: <Error />,
+      },
+      {
+        path: "/user",
+        element: <User />,
+        errorElement: <Error />,
+      },
+      {
+        path: "/product/:productId",
+        element: <Product />,
+        errorElement: <Error />,
+      },
+    ],
   },
-});
+]);
 
 function App() {
-  const [selectedProducts, setSelectedProducts] = useState([]);
-  console.log(selectedProducts);
   return (
-    <>
-      <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <Routes>
-            <Route element={<AppLayout />}>
-              <Route index element={<Navigate replace to="home" />} />
-              <Route
-                path="home"
-                element={
-                  <Home
-                    selectedProducts={selectedProducts}
-                    setSelectedProducts={setSelectedProducts}
-                  />
-                }
-              />
-              <Route
-                path="mobiles"
-                element={
-                  <Mobiles
-                    selectedProducts={selectedProducts}
-                    setSelectedProducts={setSelectedProducts}
-                  />
-                }
-              />
-              <Route
-                path="tablets"
-                element={
-                  <Tablets
-                    selectedProducts={selectedProducts}
-                    setSelectedProducts={setSelectedProducts}
-                  />
-                }
-              />
-              <Route
-                path="smartWatches"
-                element={
-                  <SmartWatches
-                    selectedProducts={selectedProducts}
-                    setSelectedProducts={setSelectedProducts}
-                  />
-                }
-              />
-              <Route
-                path="handsfrees"
-                element={
-                  <Handsfrees
-                    selectedProducts={selectedProducts}
-                    setSelectedProducts={setSelectedProducts}
-                  />
-                }
-              />
-              <Route
-                path="speakers"
-                element={
-                  <Speakers
-                    selectedProducts={selectedProducts}
-                    setSelectedProducts={setSelectedProducts}
-                  />
-                }
-              />
-              <Route
-                path="cart"
-                element={
-                  <Cart
-                    selectedProducts={selectedProducts}
-                    setSelectedProducts={setSelectedProducts}
-                  />
-                }
-              />
-              <Route path="user" element={<User />} />
-              <Route
-                path="product/:productId"
-                element={
-                  <Product
-                    setSelectedProducts={setSelectedProducts}
-                    selectedProducts={selectedProducts}
-                  />
-                }
-              />
-            </Route>
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-        </BrowserRouter>
-        {/* <ScrollUpButton/> */}
-        <Toaster
-          position="top-center"
-          gutter={12}
-          containerStyle={{ margin: "8px" }}
-          toastOptions={{
-            success: {
-              duration: 3000,
-            },
-            error: {
-              duration: 3000,
-            },
-            style: {
-              fontSize: "16px",
-              maxWidth: "500px",
-              padding: "16px 24px",
-              backgroundColor: "whitesmoke",
-              color: "black",
-            },
-          }}
-        />
-      </QueryClientProvider>
-    </>
+    <RouterProvider router={router}>
+    </RouterProvider>
   );
 }
 

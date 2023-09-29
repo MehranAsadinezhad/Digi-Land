@@ -1,20 +1,12 @@
 import React, { useState } from "react";
-
 import FilterProducts from "../ui/FilterProducts";
-import { useQuery } from "@tanstack/react-query";
 import Card from "../ui/card";
 import Footer from "../features/footer/Footer";
 import { getSpeakers } from "../services/apiSpeakers";
+import { useLoaderData } from "react-router-dom";
 
 export default function Speakers() {
-  const {
-    data: speakers,
-    isLoading,
-    error,
-  } = useQuery({
-    queryKey: ["speakers"],
-    queryFn: getSpeakers,
-  });
+  const speakers = useLoaderData();
   const [sorted, setSorted] = useState(speakers);
   return (
     <div className="mx-3 my-5 flex flex-col flex-wrap rounded-xl border-2">
@@ -30,4 +22,9 @@ export default function Speakers() {
       <Footer />
     </div>
   );
+}
+
+export async function loader() {
+  const speakers = await getSpeakers();
+  return speakers;
 }
