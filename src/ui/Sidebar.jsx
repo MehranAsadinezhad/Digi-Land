@@ -12,7 +12,7 @@ export default function Sidebar() {
         <img alt="logo" src={logo} className="w-28"></img>
       </Link>
       <ul className="flex flex-col items-center gap-y-3 py-5">
-        <li className="hover:bg-lightGrey rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:text-dark">
+        <li className="rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark">
           <NavLink to="/" className="flex items-center gap-x-3">
             <span>
               <FaHome />
@@ -20,7 +20,7 @@ export default function Sidebar() {
             <span>خانه</span>
           </NavLink>
         </li>
-        <li className="hover:bg-lightGrey rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:text-dark">
+        <li className="rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark">
           <NavLink to="mobiles" className="flex items-center gap-x-3">
             <span>
               <FaMobileAlt />
@@ -28,7 +28,7 @@ export default function Sidebar() {
             <span>موبایل</span>
           </NavLink>
         </li>
-        <li className="hover:bg-lightGrey rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:text-dark">
+        <li className="rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark">
           <NavLink to="tablets" className="flex items-center gap-x-3">
             <span>
               <IoTabletPortraitSharp />
@@ -36,7 +36,7 @@ export default function Sidebar() {
             <span>تبلت</span>
           </NavLink>
         </li>
-        <li className="hover:bg-lightGrey rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:text-dark">
+        <li className="rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark">
           <NavLink to="smartWatches" className="flex items-center gap-x-3">
             <span>
               <IoWatch />
@@ -44,7 +44,7 @@ export default function Sidebar() {
             <span>ساعت هوشمند</span>
           </NavLink>
         </li>
-        <li className="hover:bg-lightGrey rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:text-dark">
+        <li className="rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark">
           <NavLink to="handsfrees" className="flex items-center gap-x-3">
             <span>
               <FaHeadphones />
@@ -52,7 +52,7 @@ export default function Sidebar() {
             <span>هندزفری</span>
           </NavLink>
         </li>
-        <li className="hover:bg-lightGrey rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:text-dark">
+        <li className="rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark">
           <NavLink to="speakers" className="flex items-center gap-x-3">
             <span>
               <PiSpeakerHifiFill className="text-2xl" />

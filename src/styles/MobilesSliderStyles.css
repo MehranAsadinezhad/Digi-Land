@@ -3,7 +3,7 @@
   }
   .swiper-button-prev {
     color: #030712;
-    background-color: #FDA4AF;
+    background-color: #7FD1AE;
     height: 55px;
     width: 55px;
     border-radius: 50px;
@@ -17,7 +17,7 @@
   }
   .swiper-button-next {
     color: #030712;
-    background-color: #FDA4AF;
+    background-color: #7FD1AE;
     height: 55px;
     width: 55px;
     margin: -40px 5px;
@@ -35,7 +35,7 @@
   }
   .swiper-button-next:hover,
   .swiper-button-prev:hover {
-    background-color: rgb(227, 136, 147);
+    background-color: #5cb58f;
   }
   .swiper-horizontal > .swiper-pagination-bullets,
   .swiper-pagination-bullets.swiper-pagination-horizontal {

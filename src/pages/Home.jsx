@@ -29,11 +29,11 @@ export default function Home() {
       <Advertise homeImages={homeImages} />
       <HomeTablets tablets={tablets} />
       <SecondAdvertise homeImages={homeImages} />
-      <HomeSpeakers speakers={speakers} />
+      <HomeHandsfrees handsfrees={handsfrees} />
       <Advertise homeImages={homeImages} />
       <HomeSmartWatches smartWatches={smartWatches} />
       <SecondAdvertise homeImages={homeImages} />
-      <HomeHandsfrees handsfrees={handsfrees} />
+      <HomeSpeakers speakers={speakers} />
       <Footer />
     </>
   );
