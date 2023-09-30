@@ -6,7 +6,7 @@ export default function Advertise({ homeImages }) {
   return (
     <div className="mx-3 flex items-start justify-around gap-x-2">
       <img
-        src={homeImages[5].image}
+        src={homeImages[1].image}
         alt="firstImg"
         className="w-2/4 cursor-pointer rounded-xl"
         onClick={() => navigate(`/${homeImages[5].title}`)}

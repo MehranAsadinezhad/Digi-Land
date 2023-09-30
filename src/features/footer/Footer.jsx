@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaInstagram, FaGithubAlt } from "react-icons/fa6";
+import MyCard from "../../ui/MyCard";
 
 export default function Footer() {
   return (
@@ -25,7 +26,6 @@ export default function Footer() {
           </span>
         </a>
       </div>
-      <div></div>
     </div>
   );
 }

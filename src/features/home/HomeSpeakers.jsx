@@ -3,9 +3,11 @@ import SpeakersSlider from "../speakers/SpeakersSlider";
 
 export default function HomeTablets({speakers}) {
   return (
-    <div className="my-10 h-[500px] w-full rounded-3xl bg-secondary px-8 py-5">
+    <div className="my-10 h-[500px] w-full rounded-3xl bg-secondary px-8 py-5 shadow-xl">
       <div className="flex flex-col gap-y-2">
-        <h1 className="font-shabnamBold text-2xl text-dark">اسپیکر</h1>
+        <h1 className="text-center font-shabnamBold text-3xl tracking-widest text-dark">
+          اسپیکر
+        </h1>
         <div className="border-b-2 border-dark"></div>
       </div>
       <div>

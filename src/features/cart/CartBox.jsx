@@ -14,12 +14,12 @@ export default function CartBox() {
         مجموع قیمت: {separate(totalPrices)} تومان
       </h1>
       <div className="flex items-center gap-x-3">
-        <Link className="rounded-xl bg-primary px-3 py-1.5 text-medium transition-all duration-200 hover:bg-sky-600">
+        <Link to="/user" className="rounded-xl bg-primary px-3 py-1.5 text-medium transition-all duration-200 hover:bg-indigo-600">
           ثبت سفارش
         </Link>
         <Link
-          to="/home"
-          className="rounded-xl bg-primary px-3 py-1.5 text-medium transition-all duration-200 hover:bg-sky-600"
+          to="/"
+          className="rounded-xl bg-primary px-3 py-1.5 text-medium transition-all duration-200 hover:bg-indigo-600"
         >
           ادامه خرید
         </Link>
