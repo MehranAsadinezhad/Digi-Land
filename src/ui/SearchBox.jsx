@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { FaXmark } from "react-icons/fa6";
 import {
+  focusInput,
+  getFocusInp,
   getSearchProductsResult,
   searchProductsResult,
 } from "../features/user/userSlice";
@@ -18,7 +21,7 @@ const speakers = await getSpeakers();
 const smartWatches = await getSmartWatches();
 
 export default function SearchBox() {
-  const [focusInp, setFocusInp] = useState(false);
+  const focusInp = useSelector(getFocusInp);
   const products = useSelector(getSearchProductsResult);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -48,23 +51,29 @@ export default function SearchBox() {
         onChange={(e) => {
           if (searchValue.length > 0) {
             dispatch(searchProductsResult(filteredProducts));
-            setFocusInp(true);
+            dispatch(focusInput(true));
           }
           setSearchValue(e.target.value);
         }}
       ></input>
 
       {focusInp && (
-        <div className="rounded-b-l-lg absolute z-50 mt-2 flex h-[460px] w-[460px] flex-col overflow-y-scroll bg-slate-200/20 backdrop-blur-lg">
+        <div className="rounded-b-l-lg absolute z-50 mt-2 flex h-[460px] w-[460px] flex-col gap-3 overflow-y-scroll bg-slate-200/20 backdrop-blur-lg">
           {focusInp && (
-            <button
-              onClick={() => setFocusInp(false)}
-              className="rounded-lg bg-red-600 px-3 py-1 text-medium"
-            >
-              بستن پنجره
-            </button>
+            <div className="flex items-center gap-x-3 self-end rounded-lg bg-red-600 px-3 py-1 text-medium transition-all duration-200 hover:bg-red-700">
+              <button
+                onClick={() => {
+                  dispatch(focusInput(false));
+                  setSearchValue("");
+                }}
+                className=""
+              >
+                بستن پنجره
+              </button>
+              <FaXmark className="text-lg" />
+            </div>
           )}
-          <ul className="rounded-b-l-lg mt-2 flex flex-col items-center ">
+          <ul className="rounded-b-l-lg flex flex-col items-center ">
             {products.map((items) => (
               <li
                 key={Math.random()}
@@ -72,7 +81,7 @@ export default function SearchBox() {
                 onClick={() => {
                   navigate(`/product/${items.id}`);
                   dispatch(searchProductsResult([]));
-                  setFocusInp(false);
+                  dispatch(focusInput(false));
                   setSearchValue("");
                 }}
               >
