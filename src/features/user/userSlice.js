@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   username: "",
   auth: false,
-  searchResult: false,
   searchProducts: [],
+  focusInp:false,
 };
 
 const userSlice = createSlice({
@@ -17,20 +17,20 @@ const userSlice = createSlice({
     userLogined(state, action) {
       state.auth = action.payload;
     },
-    searchBox(state, action) {
-      state.searchResult = action.payload;
-    },
     searchProductsResult(state, action) {
       state.searchProducts = action.payload;
     },
+    focusInput(state,action){
+      state.focusInp = action.payload;
+    }
   },
 });
 
-export const { addUsername, userLogined, searchBox, searchProductsResult } =
+export const { addUsername, userLogined,focusInput, searchProductsResult } =
   userSlice.actions;
 export default userSlice.reducer;
 
 export const getUsername = (state) => state.user.username;
 export const getAuth = (state) => state.user.auth;
-export const getSearchResult = (state) => state.user.searchResult;
 export const getSearchProductsResult = (state) => state.user.searchProducts;
+export const getFocusInp = (state)=> state.user.focusInp;

@@ -21,15 +21,16 @@ export default function FilterProducts({ products, setSorted }) {
 
   return (
     <div className="flex items-center justify-center gap-x-5 px-4 py-5">
+      <h1 className="text-lg font-shabnamBold">فیلتر ها:</h1>
       <button
         onClick={sortMax}
-        className="rounded-lg px-2 py-1 text-lg text-dark underline-offset-8  focus:bg-primary focus:text-medium"
+        className="rounded-lg text-medium bg-primary duration-200 transition-all px-2 py-1 text-lg underline-offset-8  focus:bg-greenn focus:text-medium"
       >
         گران ترین
       </button>
       <button
         onClick={sortMin}
-        className="rounded-lg px-2 py-1 text-lg text-dark underline-offset-8  focus:bg-primary focus:text-medium"
+        className="rounded-lg text-medium bg-primary duration-200 transition-all px-2 py-1 text-lg underline-offset-8  focus:bg-indigo-600"
       >
         ارزان ترین
       </button>

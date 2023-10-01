@@ -1,48 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaUser, FaCartShopping } from "react-icons/fa6";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { getCard } from "../features/cart/cartSlice";
-import {
-  getAuth,
-  getSearchResult,
-  getUsername,
-  searchBox,
-  searchProductsResult,
-} from "../features/user/userSlice";
-import { getMobiles } from "../services/apiMobiles";
-import { getTablets } from "../services/apiTablets";
-import { getHandsfree } from "../services/apiHandsfree";
-import { getSpeakers } from "../services/apiSpeakers";
-import { getSmartWatches } from "../services/apiSmartWatches";
+import { getAuth, getUsername } from "../features/user/userSlice";
+
 import SearchBox from "./searchBox";
 
-const mobiles = await getMobiles();
-const tablets = await getTablets();
-const handsfrees = await getHandsfree();
-const speakers = await getSpeakers();
-const smartWatches = await getSmartWatches();
 export default function Header({ quantity }) {
-  const focusInp = useSelector(getSearchResult);
   const cart = useSelector(getCard);
   const auth = useSelector(getAuth);
   const username = useSelector(getUsername);
-  const [searchValue, setSearchValue] = useState("");
-  const dispatch = useDispatch();
-
-  const allProducts = [
-    ...mobiles,
-    ...tablets,
-    ...smartWatches,
-    ...tablets,
-    ...handsfrees,
-    ...speakers,
-  ];
-  let filteredProducts;
-
-  if (searchValue.length > 0) {
-    filteredProducts = allProducts.filter((i) => i.name.match(searchValue));
-  }
   return (
     <header className="col-span-12 flex items-center justify-between border-b-2 bg-white px-8">
       <div className="flex items-center gap-x-10">
@@ -52,20 +20,7 @@ export default function Header({ quantity }) {
         >
           DIGI LAND
         </Link>
-        <form className="relative">
-          <input
-            placeholder="جستجو"
-            className="w-80 rounded-lg bg-lightGrey px-5 py-2 outline-none transition-all duration-200 focus:w-96 focus:ring-2 focus:ring-primary"
-            onChange={(e) => {
-              setSearchValue(e.target.value);
-              if (filteredProducts?.length > 0) {
-                dispatch(searchProductsResult(filteredProducts));
-                dispatch(searchBox(true));
-              }
-            }}
-          ></input>
-          {focusInp && <SearchBox />}
-        </form>
+        <SearchBox />
       </div>
       <div className="flex items-center gap-x-10">
         {!auth ? (

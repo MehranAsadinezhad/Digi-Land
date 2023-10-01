@@ -52,7 +52,6 @@ export default function Product() {
     cart.find((item) => item.id === theProduct.id)?.quantity ?? 0;
   const isInCart = currentQuantity > 0;
 
-  console.log(theProduct);
   return (
     <div className="my-5 px-3">
       <h1 className="my-10 font-shabnamBold text-3xl text-dark">
