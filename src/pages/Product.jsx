@@ -27,6 +27,10 @@ import { getTablets } from "../services/apiTablets";
 import { getHandsfree } from "../services/apiHandsfree";
 import { getSpeakers } from "../services/apiSpeakers";
 import { getSmartWatches } from "../services/apiSmartWatches";
+import { useDispatch, useSelector } from "react-redux";
+import UpdateItemQuantity from "../ui/UpdateItemQuantity";
+import { addItem } from "../features/cart/cartSlice";
+import toast from "react-hot-toast";
 
 const mobiles = await getMobiles();
 const tablets = await getTablets();
@@ -36,12 +40,19 @@ const smartWatches = await getSmartWatches();
 
 export default function Product() {
   const { productId } = useParams();
+  const dispatch = useDispatch();
   const products = [mobiles, tablets, handsfrees, speakers, smartWatches];
   const product = products.map((all) =>
     all.filter((product) => product.id === Number(productId)),
   );
   const theProduct = product.filter((product) => product.length > 0)[0][0];
+  const { price } = theProduct;
+  const cart = useSelector((state) => state.cart.cart);
+  const currentQuantity =
+    cart.find((item) => item.id === theProduct.id)?.quantity ?? 0;
+  const isInCart = currentQuantity > 0;
 
+  console.log(theProduct);
   return (
     <div className="my-5 px-3">
       <h1 className="my-10 font-shabnamBold text-3xl text-dark">
@@ -145,7 +156,24 @@ export default function Product() {
             <MdPriceChange className="text-2xl text-green-500" /> قیمت:{" "}
             {separate(theProduct.price)}
           </h1>
-          <CartButton />
+          {!isInCart ? (
+            <CartButton
+              onClick={() => {
+                const newItem = {
+                  ...theProduct,
+                  quantity: 1,
+                  totalPrice: price * 1,
+                };
+                dispatch(addItem(newItem));
+                toast.success("محصول به سبد خرید اضافه شد");
+              }}
+              className="rounded-xl bg-primary px-3 py-1.5 text-medium transition-all duration-200 hover:bg-sky-600"
+            >
+              افزودن به سبد خرید
+            </CartButton>
+          ) : (
+            <UpdateItemQuantity data={theProduct} />
+          )}
         </div>
       </div>
       <div className="my-10">

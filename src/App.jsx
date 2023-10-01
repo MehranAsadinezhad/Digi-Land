@@ -9,10 +9,12 @@ import Tablets, { loader as tablets } from "./pages/Tablets";
 import Handsfrees, { loader as handsfrees } from "./pages/Handsfrees";
 import SmartWatches, { loader as smartWatches } from "./pages/SmartWatches";
 import Speakers, { loader as speakers } from "./pages/Speakers";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
 import Cart from "./pages/Cart";
-import User from "./pages/User";
+import User from "./pages/Signup";
 import Error from "./ui/Error";
 import Product from "./pages/Product";
 // import ScrollUpButton from "./ui/ScrollUpButton";
@@ -65,8 +67,13 @@ const router = createBrowserRouter([
         errorElement: <Error />,
       },
       {
-        path: "/user",
-        element: <User />,
+        path: "/signup",
+        element: <Signup />,
+        errorElement: <Error />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
         errorElement: <Error />,
       },
       {

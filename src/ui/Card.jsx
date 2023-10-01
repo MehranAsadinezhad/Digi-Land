@@ -8,7 +8,7 @@ import { addItem } from "../features/cart/cartSlice";
 
 export default function Card({ data }) {
   const dispatch = useDispatch();
-  const { price, quantity } = data;
+  const { price } = data;
   const cart = useSelector((state) => state.cart.cart);
   const currentQuantity =
     cart.find((item) => item.id === data.id)?.quantity ?? 0;
