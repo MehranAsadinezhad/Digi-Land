@@ -139,7 +139,7 @@ export default function Product() {
             )}
           </ul>
         </div>
-        <div className="my-5 hidden lg:flex lg:flex-col items-center sm:my-0">
+        <div className="my-5 flex flex-col items-center">
           <h1 className="mb-5 flex items-center gap-x-3 border-b-2 border-dashed border-grey py-2 text-3xl text-grey">
             <MdTimer className="text-6xl text-primary" /> ارسال سریع
           </h1>
