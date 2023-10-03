@@ -59,7 +59,7 @@ export default function Product() {
       </h1>
       <div className="flex flex-col items-center lg:grid lg:grid-cols-3 lg:place-items-center">
         <img
-          className="my-5 w-[300px]"
+          className="my-5 w-[250px] lg:w-[300px]"
           src={theProduct?.image}
           alt={theProduct?.id}
         ></img>
