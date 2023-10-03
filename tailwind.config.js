@@ -6,7 +6,7 @@ export default {
     extend: {
       colors: {
         primary: "#8083FF",
-        secondary: "#7FD1AE",
+        secondary: "#c7d2fe",
         greenn: "#5cb58f",
         dark: "#030712",
         medium: "#f3f4f6",
@@ -25,13 +25,16 @@ export default {
         sm: "520px",
         // => @media (min-width: 576px) { ... }
 
-        md: "640px",
+        md: "700px",
         // => @media (min-width: 960px) { ... }
 
-        lg: "885px",
+        lg: "929px",
         // => @media (min-width: 1440px) { ... }
 
         xl: "1022px",
+        ml: "1311px",
+
+        xxl: "1350px",
       },
     },
   },

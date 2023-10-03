@@ -1,45 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaUser, FaCartShopping } from "react-icons/fa6";
 import { useSelector } from "react-redux";
 import { getCard } from "../features/cart/cartSlice";
 import { getAuth, getUsername } from "../features/user/userSlice";
 
-import SearchBox from "./searchBox";
+import SearchBox from "./SearchBox";
+import { GrMenu } from "react-icons/gr";
 
-export default function Header({ quantity }) {
+export default function Header() {
   const cart = useSelector(getCard);
   const auth = useSelector(getAuth);
   const username = useSelector(getUsername);
+  const [menu, setMenu] = useState(false);
+
   return (
-    <header className="col-span-12 flex items-center justify-between border-b-2 bg-white px-8">
-      <div className="flex items-center gap-x-10">
+    <header className="col-span-12 flex flex-col justify-around gap-x-2 border-b-2 bg-white md:flex md:flex-row md:items-center md:justify-between md:px-8">
+      <div className="flex items-center justify-around gap-x-3 sm:gap-x-10">
         <Link
           to="/"
-          className="p-2 font-skranjiBold text-2xl tracking-wider text-grey transition-colors duration-300 hover:text-dark"
+          className="text-center font-skranjiBold text-2xl text-grey transition-colors duration-300 hover:text-dark sm:p-2 sm:tracking-wider"
         >
           DIGI LAND
         </Link>
         <SearchBox />
       </div>
-      <div className="flex items-center gap-x-10">
+      <div className="flex items-center justify-around gap-x-5 sm:gap-x-10">
+        <NavLink
+          onClick={() => {
+            if (!menu) {
+              setMenu(true);
+            } else {
+              setMenu(false);
+            }
+          }}
+          to={`${!menu ? "/menu" : "/"}`}
+          className="rounded-lg text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark sm:p-2 sm:text-xl md:hidden"
+        >
+          <GrMenu />
+        </NavLink>
         {!auth ? (
           <NavLink
-            to="signup"
-            className="rounded-lg p-2 text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
+            to="/signup"
+            className="rounded-lg text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark sm:p-2 sm:text-xl"
           >
             <FaUser />
           </NavLink>
         ) : (
-          <h1 className="font-shabnamBold text-lg text-primary">{username}</h1>
+          <h1 className="hidden font-shabnamBold text-xl text-primary sm:block">
+            {username}
+          </h1>
         )}
         <NavLink
-          to="cart"
-          className="relative rounded-lg p-2 font-sans text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
+          to="/cart"
+          className="relative  rounded-lg text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark sm:p-2 sm:text-xl"
         >
           <FaCartShopping />
           {cart.length > 0 && (
-            <div className="absolute -right-2 -top-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-medium ring-2 ring-primary ring-offset-1 dark:border-gray-900 lg:h-5 lg:w-5 lg:text-sm">
+            <div className="absolute -right-4 -top-3 inline-flex h-4 w-4 items-center justify-center rounded-full bg-primary text-center text-sm font-bold text-medium ring-2 ring-grey ring-offset-2 sm:-right-2 sm:-top-1 sm:h-6 sm:w-6 lg:h-5 lg:w-5 lg:text-sm">
               {cart.length}
             </div>
           )}

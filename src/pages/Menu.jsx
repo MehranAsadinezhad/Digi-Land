@@ -1,25 +1,27 @@
 import React from "react";
+import { useDispatch} from "react-redux";
 import logo from "../assets/images/logo-light.png";
 import { Link, NavLink } from "react-router-dom";
-import { FaHome, FaMobileAlt } from "react-icons/fa";
-import { FaHeadphones } from "react-icons/fa6";
-import { IoWatch, IoTabletPortraitSharp } from "react-icons/io5";
-import { PiSpeakerHifiFill } from "react-icons/pi";
-import { useDispatch } from "react-redux";
 import { focusInput } from "../features/user/userSlice";
-export default function Sidebar() {
+import { FaHome, FaMobileAlt } from "react-icons/fa";
+import { IoTabletPortraitSharp, IoWatch } from "react-icons/io5";
+import { FaHeadphones } from "react-icons/fa6";
+import { PiSpeakerHifiFill } from "react-icons/pi";
+
+export default function Menu() {
   const dispatch = useDispatch();
+  // const visibleMenu = useSelector(getVisibleMenu);
   return (
-    <div className="lg:col-span-2 md:col-span-3 col-start-1 hidden flex-col items-center border-l-2 py-5 md:flex">
+    <div className="my-10 flex h-screen w-screen flex-col items-center gap-5">
       <Link to="/">
-        <img alt="logo" src={logo} className="w-20"></img>
+        <img alt="logo" src={logo} className="w-24 mb-5"></img>
       </Link>
-      <ul className="flex flex-col items-center gap-y-3 py-5">
+      <ul className="flex flex-col items-center gap-y-3">
         <li
           onClick={() => {
             dispatch(focusInput(false));
           }}
-          className="rounded-lg p-2 text-center text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
+          className="rounded-lg p-2 border-b-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
         >
           <NavLink to="/" className="flex items-center gap-x-3">
             <span>
@@ -32,9 +34,9 @@ export default function Sidebar() {
           onClick={() => {
             dispatch(focusInput(false));
           }}
-          className="rounded-lg p-2 text-center text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
+          className="rounded-lg p-2 border-b-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
         >
-          <NavLink to="mobiles" className="flex items-center gap-x-3">
+          <NavLink to="/mobiles" className="flex items-center gap-x-3">
             <span>
               <FaMobileAlt />
             </span>
@@ -45,9 +47,9 @@ export default function Sidebar() {
           onClick={() => {
             dispatch(focusInput(false));
           }}
-          className="rounded-lg p-2 text-center text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
+          className="rounded-lg p-2 border-b-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
         >
-          <NavLink to="tablets" className="flex items-center gap-x-3">
+          <NavLink to="/tablets" className="flex items-center gap-x-3">
             <span>
               <IoTabletPortraitSharp />
             </span>
@@ -58,9 +60,9 @@ export default function Sidebar() {
           onClick={() => {
             dispatch(focusInput(false));
           }}
-          className="rounded-lg p-2 text-center text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
+          className="rounded-lg p-2 border-b-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
         >
-          <NavLink to="smartWatches" className="flex items-center gap-x-3">
+          <NavLink to="/smartWatches" className="flex items-center gap-x-3">
             <span>
               <IoWatch />
             </span>
@@ -71,9 +73,9 @@ export default function Sidebar() {
           onClick={() => {
             dispatch(focusInput(false));
           }}
-          className="rounded-lg p-2 text-center text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
+          className="rounded-lg p-2 border-b-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
         >
-          <NavLink to="handsfrees" className="flex items-center gap-x-3">
+          <NavLink to="/handsfrees" className="flex items-center gap-x-3">
             <span>
               <FaHeadphones />
             </span>
@@ -84,9 +86,9 @@ export default function Sidebar() {
           onClick={() => {
             dispatch(focusInput(false));
           }}
-          className="rounded-lg p-2 text-center text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
+          className="rounded-lg p-2 border-b-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
         >
-          <NavLink to="speakers" className="flex items-center gap-x-3">
+          <NavLink to="/speakers" className="flex items-center gap-x-3">
             <span>
               <PiSpeakerHifiFill className="text-2xl" />
             </span>

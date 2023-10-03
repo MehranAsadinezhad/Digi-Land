@@ -1,4 +1,3 @@
-import { useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -14,7 +13,7 @@ export default function UpdateItemQuantity({ data }) {
   return (
     <div className="flex items-center gap-x-2">
       <button
-        className="hover:bg-lightRed h-7 w-7 rounded-full bg-primary text-sm font-bold text-medium transition-all duration-200 lg:text-lg"
+        className="hover:bg-indigo-600 h-7 w-7 rounded-full bg-primary text-sm font-bold text-medium transition-all duration-200 lg:text-lg"
         onClick={() => {
           dispatch(increaseItem(product.id));
           toast.success("محصول به سبد خرید اضافه شد");
@@ -26,11 +25,11 @@ export default function UpdateItemQuantity({ data }) {
         {product.quantity}
       </span>
       <button
-        className="hover:bg-lightRed h-7 w-7 rounded-full bg-primary text-sm font-bold text-medium transition-all duration-200 lg:text-lg"
+        className="hover:bg-indigo-600 h-7 w-7 rounded-full bg-primary text-sm font-bold text-medium transition-all duration-200 lg:text-lg"
         onClick={() => {
           if (product.quantity < 1) return;
           dispatch(decreaseItem(product.id));
-          toast.error("از سبد خرید حذف شد");
+          toast.error("محصول از سبد خرید حذف شد");
         }}
       >
         -

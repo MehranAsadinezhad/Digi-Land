@@ -1,8 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import {
   addUsername,
-  getAuth,
-  getUsername,
   userLogined,
 } from "../features/user/userSlice";
 import { useState } from "react";

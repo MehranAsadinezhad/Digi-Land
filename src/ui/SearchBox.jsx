@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { FaXmark } from "react-icons/fa6";
+import { useDispatch } from "react-redux";
 import {
   focusInput,
-  getFocusInp,
-  getSearchProductsResult,
   searchProductsResult,
 } from "../features/user/userSlice";
-import { useNavigate } from "react-router-dom";
 import { getMobiles } from "../services/apiMobiles";
 import { getTablets } from "../services/apiTablets";
 import { getHandsfree } from "../services/apiHandsfree";
@@ -21,9 +17,6 @@ const speakers = await getSpeakers();
 const smartWatches = await getSmartWatches();
 
 export default function SearchBox() {
-  const focusInp = useSelector(getFocusInp);
-  const products = useSelector(getSearchProductsResult);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [searchValue, setSearchValue] = useState("");
 
@@ -43,11 +36,11 @@ export default function SearchBox() {
     );
   }
   return (
-    <form className="relative">
+    <form>
       <input
         placeholder="جستجو"
         defaultValue={searchValue}
-        className="w-80 rounded-lg bg-lightGrey px-5 py-2 outline-none transition-all duration-200 focus:w-96 focus:ring-2 focus:ring-primary"
+        className="w-full rounded-lg bg-lightGrey px-2 py-1 outline-none transition-all duration-200 focus:ring-2  focus:ring-primary sm:w-80 sm:px-5 sm:py-2 sm:text-sm sm:focus:w-96"
         onChange={(e) => {
           if (searchValue.length > 0) {
             dispatch(searchProductsResult(filteredProducts));
@@ -56,42 +49,6 @@ export default function SearchBox() {
           setSearchValue(e.target.value);
         }}
       ></input>
-
-      {focusInp && (
-        <div className="rounded-b-l-lg absolute z-50 mt-2 flex h-[460px] w-[460px] flex-col gap-3 overflow-y-scroll bg-slate-200/20 backdrop-blur-lg">
-          {focusInp && (
-            <div className="flex items-center gap-x-3 self-end rounded-lg bg-red-600 px-3 py-1 text-medium transition-all duration-200 hover:bg-red-700">
-              <button
-                onClick={() => {
-                  dispatch(focusInput(false));
-                  setSearchValue("");
-                }}
-                className=""
-              >
-                بستن پنجره
-              </button>
-              <FaXmark className="text-lg" />
-            </div>
-          )}
-          <ul className="rounded-b-l-lg flex flex-col items-center ">
-            {products.map((items) => (
-              <li
-                key={Math.random()}
-                className="flex w-full cursor-pointer items-center gap-2 p-5 transition-all duration-200 hover:bg-slate-200/30"
-                onClick={() => {
-                  navigate(`/product/${items.id}`);
-                  dispatch(searchProductsResult([]));
-                  dispatch(focusInput(false));
-                  setSearchValue("");
-                }}
-              >
-                <img className="w-24" src={items.image} alt={items.name}></img>
-                <h1 className="font-shabnamBold text-lg">{items.name}</h1>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
     </form>
   );
 }

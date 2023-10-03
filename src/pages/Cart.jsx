@@ -12,19 +12,19 @@ export default function Cart() {
   return (
     <>
       {userCart.length ? (
-        <div className="my-5 flex w-full justify-between px-3">
-          <div className="my-5 flex w-11/12 flex-col">
+        <div className="my-3 gap-5 flex flex-col w-full justify-between px-3">
+          <div className="lg:my-5 gap-3 lg:items-start items-center flex lg:w-11/12 flex-col">
             {userCart.map((mobile) => (
               <CartList key={Math.random()} data={mobile} />
             ))}
           </div>
-          <div className="fixed left-8 flex flex-col items-center gap-5 rounded-lg border-2 bg-lightGrey px-4 py-5 shadow-xl">
+          <div className="lg:fixed left-8 mb-5 flex flex-col items-center gap-5 rounded-lg border-2 bg-lightGrey px-4 py-5 shadow-xl">
             <CartBox />
           </div>
         </div>
       ) : (
-        <div className="flex flex-col items-center gap-8 p-10">
-          <img src={cartImg} className="w-72" alt="cart"></img>
+        <div className="flex p-5 flex-col items-center gap-4 sm:gap-8 sm:p-10">
+          <img src={cartImg} className="sm:w-72 w-56" alt="cart"></img>
           <h1 className="text-lg text-grey">سبد شما خالی است !</h1>
           <Link
             to="/"

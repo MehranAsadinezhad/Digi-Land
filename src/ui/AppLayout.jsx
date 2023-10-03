@@ -1,27 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import { Outlet, useNavigation } from "react-router-dom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import Loader from "./loader";
+import Loader from "./Loader";
 import { Toaster } from "react-hot-toast";
+import SearchResult from "./SearchResult";
 
 export default function AppLayout() {
   const navigation = useNavigation();
   const isLoading = navigation.state === "loading";
-  const [userCart, setUserCart] = useState([]);
-  const allQuantity = userCart.length;
   return (
-    <div className="grid h-screen grid-cols-12 grid-rows-[4rem_auto]">
+    <div className="grid h-screen grid-cols-12 grid-rows-[7rem_auto] md:grid-rows-[4rem_auto]">
       <Toaster
         position="top-center"
-        gutter={12}
-        containerStyle={{ margin: "0px" }}
         toastOptions={{
           success: {
             duration: 3000,
             style: {
               backgroundColor: "green",
               color: "white",
+              minWidth: "390px",
             },
           },
           error: {
@@ -29,6 +27,7 @@ export default function AppLayout() {
             style: {
               backgroundColor: "red",
               color: "white",
+              minWidth: "390px",
             },
           },
           style: {
@@ -40,12 +39,16 @@ export default function AppLayout() {
           },
         }}
       />
-      <Header quantity={allQuantity} />
+      <Header />
       <Sidebar />
-      <main className="col-span-10 overflow-y-scroll bg-medium">
+
+      <main className="col-span-12 overflow-y-scroll bg-medium md:col-span-9 lg:col-span-10">
         {isLoading && <Loader />}
         {!isLoading && (
-          <Outlet context={[userCart, setUserCart, allQuantity]} />
+          <>
+            <SearchResult />
+            <Outlet />
+          </>
         )}
       </main>
     </div>

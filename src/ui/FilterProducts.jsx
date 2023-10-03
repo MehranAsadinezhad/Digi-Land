@@ -20,29 +20,29 @@ export default function FilterProducts({ products, setSorted }) {
   }
 
   return (
-    <div className="flex items-center justify-center gap-x-5 px-4 py-5">
-      <h1 className="font-shabnamBold text-lg">فیلتر ها:</h1>
+    <div className="flex items-center gap-x-3 justify-center p-2 sm:gap-x-5 sm:px-4 sm:py-5">
+      <h1 className="font-shabnamBold sm:text-lg">فیلتر:</h1>
       <button
         onClick={sortMax}
-        className="rounded-lg bg-primary px-2 py-1 text-lg text-medium underline-offset-8 transition-all duration-200  focus:bg-indigo-600"
+        className="rounded-lg bg-primary p-1 sm:px-2 sm:py-1 sm:text-lg text-medium transition-all duration-200  focus:bg-indigo-600"
       >
         گران ترین
       </button>
       <button
         onClick={sortMin}
-        className="rounded-lg bg-primary px-2 py-1 text-lg text-medium underline-offset-8 transition-all duration-200  focus:bg-indigo-600"
+        className="rounded-lg bg-primary p-1 sm:px-2 sm:py-1 sm:text-lg text-medium  transition-all duration-200  focus:bg-indigo-600"
       >
         ارزان ترین
       </button>
       {showFilter && (
         <button
           onClick={resetSort}
-          className="rounded-lg bg-red-600 px-2 py-1 text-lg text-medium"
+          className="rounded-lg bg-red-600 p-1 sm:px-2 sm:py-1 sm:text-lg text-medium"
         >
           حذف فیلتر
         </button>
       )}
-      <h1 className="mr-28 rounded-lg bg-grey px-2 py-1 text-lg text-medium">
+      <h1 className="rounded-lg bg-grey p-1 text-center sm:px-2 sm:py-1 sm:text-lg text-medium">
         تعداد محصولات: {products.length}
       </h1>
     </div>

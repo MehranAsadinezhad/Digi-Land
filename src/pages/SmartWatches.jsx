@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import FilterProducts from "../ui/FilterProducts";
-import Card from "../ui/card";
+import Card from "../ui/Card";
 import { getSmartWatches } from "../services/apiSmartWatches";
 import Footer from "../features/footer/Footer";
 import { useLoaderData } from "react-router-dom";
@@ -9,14 +9,11 @@ export default function SmartWatches() {
   const smartWatches = useLoaderData();
   const [sorted, setSorted] = useState(smartWatches);
   return (
-    <div className="mx-3 my-5 flex flex-col flex-wrap rounded-xl border-2">
+    <div className="mx-2 my-5 flex-wrap rounded-xl border-2 sm:mx-3 sm:flex sm:flex-col">
       <FilterProducts products={smartWatches} setSorted={setSorted} />
-      <div className="grid w-full grid-cols-4 place-items-center gap-10 px-3">
+      <div className="flex w-full flex-col place-items-center px-3 sm:grid sm:grid-cols-2 sm:gap-10 lg:grid-cols-3 xl:grid-cols-4">
         {sorted.map((watches) => (
-          <Card
-            key={watches.id}
-            data={watches}
-          />
+          <Card key={watches.id} data={watches} />
         ))}
       </div>
       <Footer />

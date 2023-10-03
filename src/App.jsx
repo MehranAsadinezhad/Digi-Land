@@ -2,7 +2,6 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
-// import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Home, { loader as homeLoader } from "./pages/Home";
 import Mobiles, { loader as mobiles } from "./pages/Mobiles";
 import Tablets, { loader as tablets } from "./pages/Tablets";
@@ -11,14 +10,11 @@ import SmartWatches, { loader as smartWatches } from "./pages/SmartWatches";
 import Speakers, { loader as speakers } from "./pages/Speakers";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
 import Cart from "./pages/Cart";
-import User from "./pages/Signup";
 import Error from "./ui/Error";
 import Product from "./pages/Product";
-// import ScrollUpButton from "./ui/ScrollUpButton";
-import { Toaster } from "react-hot-toast";
+import Menu from "./pages/Menu";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +55,11 @@ const router = createBrowserRouter([
         path: "/handsfrees",
         element: <Handsfrees />,
         loader: handsfrees,
+        errorElement: <Error />,
+      },
+      {
+        path: "/menu",
+        element: <Menu />,
         errorElement: <Error />,
       },
       {

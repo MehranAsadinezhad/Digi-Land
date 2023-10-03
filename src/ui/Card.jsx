@@ -1,4 +1,4 @@
-import { NavLink, useOutletContext } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import CardButton from "../ui/CartButton";
 import { separate } from "../utils/helpers";
 import toast from "react-hot-toast";

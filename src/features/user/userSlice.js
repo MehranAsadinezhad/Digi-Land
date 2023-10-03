@@ -22,11 +22,11 @@ const userSlice = createSlice({
     },
     focusInput(state,action){
       state.focusInp = action.payload;
-    }
+    },
   },
 });
 
-export const { addUsername, userLogined,focusInput, searchProductsResult } =
+export const { addUsername,userLogined,focusInput, searchProductsResult } =
   userSlice.actions;
 export default userSlice.reducer;
 

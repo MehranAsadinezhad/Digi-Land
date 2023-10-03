@@ -11,7 +11,7 @@ export default function CartBox() {
   const auth = useSelector(getAuth);
   return (
     <>
-      <h1 className="flex items-center gap-x-3 font-shabnamBold text-lg">
+      <h1 className="flex items-center text-green-600 gap-x-3 font-shabnamBold text-lg">
         <FaStore className="text-lg text-primary" />
         مجموع قیمت: {separate(totalPrices)} تومان
       </h1>

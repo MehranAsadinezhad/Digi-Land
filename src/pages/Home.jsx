@@ -20,6 +20,7 @@ const tablets = await getTablets();
 const handsfrees = await getHandsfree();
 const speakers = await getSpeakers();
 const smartWatches = await getSmartWatches();
+
 export default function Home() {
   const homeImages = useLoaderData();
   return (

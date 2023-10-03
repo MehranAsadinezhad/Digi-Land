@@ -54,12 +54,12 @@ export default function Product() {
 
   return (
     <div className="my-5 px-3">
-      <h1 className="my-10 font-shabnamBold text-3xl text-dark">
+      <h1 className="font-shabnamBold text-xl text-center text-dark sm:my-10 sm:text-3xl">
         {theProduct?.name}
       </h1>
-      <div className="grid grid-cols-3 place-items-center">
+      <div className="flex flex-col items-center lg:grid lg:grid-cols-3 lg:place-items-center">
         <img
-          className="w-[300px]"
+          className="my-5 w-[300px]"
           src={theProduct?.image}
           alt={theProduct?.id}
         ></img>
@@ -139,7 +139,7 @@ export default function Product() {
             )}
           </ul>
         </div>
-        <div className="flex flex-col">
+        <div className="my-5 hidden lg:flex lg:flex-col items-center sm:my-0">
           <h1 className="mb-5 flex items-center gap-x-3 border-b-2 border-dashed border-grey py-2 text-3xl text-grey">
             <MdTimer className="text-6xl text-primary" /> ارسال سریع
           </h1>
@@ -175,7 +175,7 @@ export default function Product() {
           )}
         </div>
       </div>
-      <div className="my-10">
+      <div className="sm:my-10">
         <h1 className="border-b-2 border-primary pb-3 font-shabnamBold text-2xl text-primary">
           بررسی فنی
         </h1>
