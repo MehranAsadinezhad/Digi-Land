@@ -7,7 +7,7 @@ export default function Footer() {
     <div className="flex items-center justify-center border-t-2 p-2 sm:p-3">
       <div className="flex items-center gap-x-3">
         <Link
-          to="/home"
+          to="/"
           className="sm:p-2  font-skranjiBold sm:text-2xl text-grey transition-colors duration-300 hover:text-primary"
         >
           DIGI LAND

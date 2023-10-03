@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaUser, FaCartShopping } from "react-icons/fa6";
 import { useSelector } from "react-redux";
@@ -12,7 +12,6 @@ export default function Header() {
   const cart = useSelector(getCard);
   const auth = useSelector(getAuth);
   const username = useSelector(getUsername);
-  const [menu, setMenu] = useState(false);
 
   return (
     <header className="col-span-12 flex flex-col justify-around gap-x-2 border-b-2 bg-white md:flex md:flex-row md:items-center md:justify-between md:px-8">
@@ -27,14 +26,7 @@ export default function Header() {
       </div>
       <div className="flex items-center justify-around gap-x-5 sm:gap-x-10">
         <NavLink
-          onClick={() => {
-            if (!menu) {
-              setMenu(true);
-            } else {
-              setMenu(false);
-            }
-          }}
-          to={`${!menu ? "/menu" : "/"}`}
+          to="/menu"
           className="rounded-lg text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark sm:p-2 sm:text-xl md:hidden"
         >
           <GrMenu />

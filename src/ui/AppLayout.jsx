@@ -9,6 +9,7 @@ import SearchResult from "./SearchResult";
 export default function AppLayout() {
   const navigation = useNavigation();
   const isLoading = navigation.state === "loading";
+  
   return (
     <div className="grid h-screen grid-cols-12 grid-rows-[7rem_auto] md:grid-rows-[4rem_auto]">
       <Toaster

@@ -65,7 +65,7 @@
     height: 55px;
     width: 55px;
     border-radius: 50px;
-    margin: -40px 5px;
+    margin: -40px 0px;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     -ms-border-radius: 50px;
@@ -78,7 +78,7 @@
     background-color: #c7d2fe;
     height: 55px;
     width: 55px;
-    margin: -40px 5px;
+    margin: -40px 0px;
     border-radius: 50px;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
