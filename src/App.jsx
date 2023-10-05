@@ -1,13 +1,12 @@
-import {
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
-import Home, { loader as homeLoader } from "./pages/Home";
-import Mobiles, { loader as mobiles } from "./pages/Mobiles";
-import Tablets, { loader as tablets } from "./pages/Tablets";
-import Handsfrees, { loader as handsfrees } from "./pages/Handsfrees";
-import SmartWatches, { loader as smartWatches } from "./pages/SmartWatches";
-import Speakers, { loader as speakers } from "./pages/Speakers";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Home from "./pages/Home";
+import Mobiles, { loader as mobilesLoader } from "./pages/Mobiles";
+import Tablets, { loader as tabletsLoader } from "./pages/Tablets";
+import Handsfrees, { loader as handsfreesLoader } from "./pages/Handsfrees";
+import SmartWatches, {
+  loader as smartWatchesLoader,
+} from "./pages/SmartWatches";
+import Speakers, { loader as speakersLoader } from "./pages/Speakers";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AppLayout from "./ui/AppLayout";
@@ -15,6 +14,19 @@ import Cart from "./pages/Cart";
 import Error from "./ui/Error";
 import Product from "./pages/Product";
 import Menu from "./pages/Menu";
+import { getMobiles } from "./services/apiMobiles";
+import { getTablets } from "./services/apiTablets";
+import { getHandsfree } from "./services/apiHandsfree";
+import { getSpeakers } from "./services/apiSpeakers";
+import { getSmartWatches } from "./services/apiSmartWatches";
+import { getHomeImages } from "./services/apiHomeImages";
+
+const homeImages = await getHomeImages();
+const mobiles = await getMobiles();
+const tablets = await getTablets();
+const handsfrees = await getHandsfree();
+const speakers = await getSpeakers();
+const smartWatches = await getSmartWatches();
 
 const router = createBrowserRouter([
   {
@@ -23,38 +35,46 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
-        loader: homeLoader,
+        element: (
+          <Home
+            tablets={tablets}
+            handsfrees={handsfrees}
+            mobiles={mobiles}
+            homeImages={homeImages}
+            speakers={speakers}
+            smartWatches={smartWatches}
+          />
+        ),
         errorElement: <Error />,
       },
       {
         path: "/mobiles",
         element: <Mobiles />,
-        loader: mobiles,
+        loader: mobilesLoader,
         errorElement: <Error />,
       },
       {
         path: "/tablets",
         element: <Tablets />,
-        loader: tablets,
+        loader: tabletsLoader,
         errorElement: <Error />,
       },
       {
         path: "/smartWatches",
         element: <SmartWatches />,
-        loader: smartWatches,
+        loader: smartWatchesLoader,
         errorElement: <Error />,
       },
       {
         path: "/speakers",
         element: <Speakers />,
-        loader: speakers,
+        loader: speakersLoader,
         errorElement: <Error />,
       },
       {
         path: "/handsfrees",
         element: <Handsfrees />,
-        loader: handsfrees,
+        loader: handsfreesLoader,
         errorElement: <Error />,
       },
       {
@@ -79,7 +99,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:productId",
-        element: <Product />,
+        element: (
+          <Product
+            tablets={tablets}
+            handsfrees={handsfrees}
+            mobiles={mobiles}
+            speakers={speakers}
+            smartWatches={smartWatches}
+          />
+        ),
         errorElement: <Error />,
       },
     ],
@@ -87,10 +115,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return (
-    <RouterProvider router={router}>
-    </RouterProvider>
-  );
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;
