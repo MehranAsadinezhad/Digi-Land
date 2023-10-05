@@ -39,6 +39,7 @@ export default function Product({
   smartWatches,
   tablets
 }) {
+  
   const { productId } = useParams();
   const dispatch = useDispatch();
   const products = [mobiles, tablets, handsfrees, speakers, smartWatches];

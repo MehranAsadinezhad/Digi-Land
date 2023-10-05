@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from "./pages/Home";
+import Home, { loader as homeImagesLoader } from "./pages/Home";
 import Mobiles, { loader as mobilesLoader } from "./pages/Mobiles";
 import Tablets, { loader as tabletsLoader } from "./pages/Tablets";
 import Handsfrees, { loader as handsfreesLoader } from "./pages/Handsfrees";
@@ -19,9 +19,9 @@ import { getTablets } from "./services/apiTablets";
 import { getHandsfree } from "./services/apiHandsfree";
 import { getSpeakers } from "./services/apiSpeakers";
 import { getSmartWatches } from "./services/apiSmartWatches";
-import { getHomeImages } from "./services/apiHomeImages";
+import { useState } from "react";
+import Loader from "./ui/Loader";
 
-const homeImages = await getHomeImages();
 const mobiles = await getMobiles();
 const tablets = await getTablets();
 const handsfrees = await getHandsfree();
@@ -40,11 +40,11 @@ const router = createBrowserRouter([
             tablets={tablets}
             handsfrees={handsfrees}
             mobiles={mobiles}
-            homeImages={homeImages}
             speakers={speakers}
             smartWatches={smartWatches}
           />
         ),
+        loader: homeImagesLoader,
         errorElement: <Error />,
       },
       {
@@ -115,7 +115,15 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router}></RouterProvider>;
+  const [loading, setLoading] = useState(false);
+  window.addEventListener("scroll", () => setLoading(true));
+
+  return (
+    <>
+      {!loading && <Loader />}
+      <RouterProvider router={router}></RouterProvider>
+    </>
+  );
 }
 
 export default App;

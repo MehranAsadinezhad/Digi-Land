@@ -7,16 +7,18 @@ import SecondAdvertise from "../ui/SecondAdvertise";
 import Footer from "../features/footer/Footer";
 import HomeSmartWatches from "../features/home/HomeSmartWatches";
 import HomeHandsfrees from "../features/home/HomeHandsfrees";
+import { getHomeImages } from "../services/apiHomeImages";
+import { useLoaderData } from "react-router-dom";
 
 
 export default function Home({
-  homeImages,
   mobiles,
   tablets,
   handsfrees,
   speakers,
   smartWatches,
 }) {
+  const homeImages = useLoaderData();
   
   return (
     <>
@@ -35,3 +37,7 @@ export default function Home({
   );
 }
 
+export async function loader() {
+  const homeImages = await getHomeImages();
+  return homeImages;
+}
