@@ -39,7 +39,7 @@ export default function Header() {
             <FaUser />
           </NavLink>
         ) : (
-          <h1 className="font-shabnamBold text-xl text-primary">
+          <h1 className="font-shabnamBold sm:text-xl text-primary">
             {username}
           </h1>
         )}
