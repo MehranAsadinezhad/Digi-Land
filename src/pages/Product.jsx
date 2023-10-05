@@ -22,11 +22,6 @@ import {
   MdPriceChange,
 } from "react-icons/md";
 import CartButton from "../ui/CartButton";
-import { getMobiles } from "../services/apiMobiles";
-import { getTablets } from "../services/apiTablets";
-import { getHandsfree } from "../services/apiHandsfree";
-import { getSpeakers } from "../services/apiSpeakers";
-import { getSmartWatches } from "../services/apiSmartWatches";
 import { useDispatch, useSelector } from "react-redux";
 import UpdateItemQuantity from "../ui/UpdateItemQuantity";
 import { addItem } from "../features/cart/cartSlice";

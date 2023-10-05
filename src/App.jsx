@@ -19,8 +19,6 @@ import { getTablets } from "./services/apiTablets";
 import { getHandsfree } from "./services/apiHandsfree";
 import { getSpeakers } from "./services/apiSpeakers";
 import { getSmartWatches } from "./services/apiSmartWatches";
-import { useState } from "react";
-import Loader from "./ui/Loader";
 
 const mobiles = await getMobiles();
 const tablets = await getTablets();
@@ -115,12 +113,8 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [loading, setLoading] = useState(false);
-  window.addEventListener("scroll", () => setLoading(true));
-
   return (
     <>
-      {!loading && <Loader />}
       <RouterProvider router={router}></RouterProvider>
     </>
   );
