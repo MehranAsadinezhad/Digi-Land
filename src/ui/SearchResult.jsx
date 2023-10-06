@@ -17,7 +17,7 @@ export default function SearchResult() {
   return (
     <>
       {focusInp && (
-        <div className="sm:rounded-b-l-lg inset-0 sm:inset-auto fixed z-50 flex h-screen w-screen pb-10 md:pb-16 flex-col gap-2 overflow-y-scroll bg-slate-200/20 backdrop-blur-lg  sm:h-screen sm:w-[460px] sm:gap-3">
+        <div className="sm:rounded-b-l-lg fixed z-50 flex h-screen w-screen pb-10 md:pb-16 flex-col gap-2 overflow-y-scroll bg-slate-200/20 backdrop-blur-lg  sm:h-screen sm:w-[460px] sm:gap-3">
           {focusInp && (
             <div className="flex items-center gap-x-2 self-end bg-red-500 p-2 text-medium transition-all duration-200 hover:bg-red-600 sm:gap-x-3 sm:px-3">
               <button
