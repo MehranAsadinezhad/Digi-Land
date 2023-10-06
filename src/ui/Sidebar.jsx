@@ -12,7 +12,7 @@ export default function Sidebar() {
   return (
     <div className="lg:col-span-2 md:col-span-3 col-start-1 hidden flex-col items-center border-l-2 py-5 md:flex">
       <Link to="/">
-        <img alt="logo" src={logo} className="w-20"></img>
+        <img alt="logo" src={logo} className="w-40"></img>
       </Link>
       <ul className="flex flex-col items-center gap-y-3 py-5">
         <li
