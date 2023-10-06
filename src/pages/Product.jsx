@@ -158,12 +158,17 @@ export default function Product() {
                 dispatch(addItem(newItem));
                 toast.success("محصول به سبد خرید اضافه شد");
               }}
-              className="rounded-xl bg-primary px-3 py-2 text-lg text-medium transition-all duration-200 hover:bg-sky-600"
+              className="rounded-xl bg-primary px-3 py-2 text-lg text-medium transition-all duration-200 hover:bg-indigo-600"
             >
               افزودن به سبد خرید
             </button>
           ) : (
-            <UpdateItemQuantity data={theProduct} />
+            <button
+              disabled
+              className="rounded-xl bg-gray-400 px-3 py-2 text-lg text-medium transition-all duration-200 "
+            >
+              در سبد خرید وجود دارد
+            </button>
           )}
         </div>
       </div>
