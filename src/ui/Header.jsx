@@ -8,7 +8,7 @@ import { getAuth, getUsername } from "../features/user/userSlice";
 import SearchBox from "./SearchBox";
 import { GrMenu } from "react-icons/gr";
 
-export default function Header() {
+export default function Header({allProducts}) {
   const cart = useSelector(getCard);
   const auth = useSelector(getAuth);
   const username = useSelector(getUsername);
@@ -22,7 +22,7 @@ export default function Header() {
         >
           DIGI LAND
         </Link>
-        <SearchBox />
+        <SearchBox allProducts={allProducts} />
       </div>
       <div className="flex items-center justify-around gap-x-5 sm:gap-x-10">
         <NavLink

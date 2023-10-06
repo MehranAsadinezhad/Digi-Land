@@ -1,6 +1,6 @@
 import React from "react";
 import { separate } from "../utils/helpers";
-import { useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import {
   FaCamera,
   FaBatteryFull,
@@ -26,22 +26,16 @@ import { useDispatch, useSelector } from "react-redux";
 import UpdateItemQuantity from "../ui/UpdateItemQuantity";
 import { addItem } from "../features/cart/cartSlice";
 import toast from "react-hot-toast";
+import { getAllProducts } from "../services/apiAllProducst";
 
-export default function Product({
-  mobiles,
-  handsfrees,
-  speakers,
-  smartWatches,
-  tablets
-}) {
-  
+export default function Product({  }) {
+  const allProducts = useLoaderData();
   const { productId } = useParams();
   const dispatch = useDispatch();
-  const products = [mobiles, tablets, handsfrees, speakers, smartWatches];
-  const product = products.map((all) =>
-    all.filter((product) => product.id === Number(productId)),
+  const product = allProducts.filter(
+    (product) => product.id === Number(productId),
   );
-  const theProduct = product.filter((product) => product.length > 0)[0][0];
+  const theProduct = product[0];
   const { price } = theProduct;
   const cart = useSelector((state) => state.cart.cart);
   const currentQuantity =
@@ -83,18 +77,21 @@ export default function Product({
               </li>
             )}
             {theProduct?.ram && (
-              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-base"></li>
-            )}
-            {theProduct?.mainCamera && (
               <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-base">
                 <BsDiagram3 />
                 <span>رم / {theProduct?.ram} گیگابایت رم</span>
               </li>
             )}
-            {theProduct?.selfieCamera && (
+            {theProduct?.mainCamera && (
               <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-base">
                 <FaCamera />
                 <span>دوربین اصلی / {theProduct?.mainCamera} مگا پیکسل</span>
+              </li>
+            )}
+            {theProduct?.selfieCamera && (
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-base">
+                <FaCamera />
+                <span>دوربین سلفی / {theProduct?.selfieCamera} مگا پیکسل</span>
               </li>
             )}
             {theProduct?.battery && (
@@ -179,4 +176,9 @@ export default function Product({
       </div>
     </div>
   );
+}
+
+export async function loader() {
+  const allProducts = await getAllProducts();
+  return allProducts;
 }

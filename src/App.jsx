@@ -12,68 +12,53 @@ import Signup from "./pages/Signup";
 import AppLayout from "./ui/AppLayout";
 import Cart from "./pages/Cart";
 import Error from "./ui/Error";
-import Product from "./pages/Product";
+import Product, { loader as productLoader } from "./pages/Product";
 import Menu from "./pages/Menu";
-import { getMobiles } from "./services/apiMobiles";
-import { getTablets } from "./services/apiTablets";
-import { getHandsfree } from "./services/apiHandsfree";
-import { getSpeakers } from "./services/apiSpeakers";
-import { getSmartWatches } from "./services/apiSmartWatches";
+import PageNotFounded from "./pages/PageNotFounded";
+import { getAllProducts } from "./services/apiAllProducst";
 
-const mobiles = await getMobiles();
-const tablets = await getTablets();
-const handsfrees = await getHandsfree();
-const speakers = await getSpeakers();
-const smartWatches = await getSmartWatches();
+const allProducts = await getAllProducts();
 
 const router = createBrowserRouter([
   {
-    element: <AppLayout />,
+    element: <AppLayout allProducts={allProducts} />,
     errorElement: <Error />,
     children: [
       {
         path: "/",
-        element: (
-          <Home
-            tablets={tablets}
-            handsfrees={handsfrees}
-            mobiles={mobiles}
-            speakers={speakers}
-            smartWatches={smartWatches}
-          />
-        ),
-        loader: homeImagesLoader,
+        element: <Home allProducts={allProducts} />,
         errorElement: <Error />,
+        loader: homeImagesLoader,
       },
       {
         path: "/mobiles",
         element: <Mobiles />,
-        loader: mobilesLoader,
         errorElement: <Error />,
+        loader: mobilesLoader,
       },
       {
         path: "/tablets",
         element: <Tablets />,
-        loader: tabletsLoader,
         errorElement: <Error />,
+        loader: tabletsLoader,
       },
       {
         path: "/smartWatches",
         element: <SmartWatches />,
-        loader: smartWatchesLoader,
         errorElement: <Error />,
+        loader: smartWatchesLoader,
       },
       {
         path: "/speakers",
         element: <Speakers />,
-        loader: speakersLoader,
         errorElement: <Error />,
+        loader: speakersLoader,
       },
       {
         path: "/handsfrees",
         element: <Handsfrees />,
-        loader: handsfreesLoader,
         errorElement: <Error />,
+        loader: handsfreesLoader,
       },
       {
         path: "/menu",
@@ -97,18 +82,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:productId",
-        element: (
-          <Product
-            tablets={tablets}
-            handsfrees={handsfrees}
-            mobiles={mobiles}
-            speakers={speakers}
-            smartWatches={smartWatches}
-          />
-        ),
+        element: <Product allProducts={allProducts} />,
         errorElement: <Error />,
+        loader: productLoader
       },
     ],
+  },
+  {
+    path: "*",
+    element: <PageNotFounded />,
   },
 ]);
 

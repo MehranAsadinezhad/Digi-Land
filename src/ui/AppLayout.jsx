@@ -6,10 +6,10 @@ import Loader from "./Loader";
 import { Toaster } from "react-hot-toast";
 import SearchResult from "./SearchResult";
 
-export default function AppLayout() {
+export default function AppLayout({allProducts}) {
   const navigation = useNavigation();
   const isLoading = navigation.state === "loading";
-  
+
   return (
     <div className="grid h-screen grid-cols-12 grid-rows-[7rem_auto] md:grid-rows-[4rem_auto]">
       <Toaster
@@ -40,16 +40,17 @@ export default function AppLayout() {
           },
         }}
       />
-      <Header />
+      <Header allProducts={allProducts} />
       <Sidebar />
 
       <main className="col-span-12 overflow-y-scroll bg-medium md:col-span-9 lg:col-span-10">
-        {isLoading && <Loader />}
-        {!isLoading && (
+        {!isLoading ? (
           <>
             <SearchResult />
             <Outlet />
           </>
+        ) : (
+          <Loader />
         )}
       </main>
     </div>

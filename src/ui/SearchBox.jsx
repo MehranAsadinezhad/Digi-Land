@@ -1,33 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  focusInput,
-  searchProductsResult,
-} from "../features/user/userSlice";
-import { getMobiles } from "../services/apiMobiles";
-import { getTablets } from "../services/apiTablets";
-import { getHandsfree } from "../services/apiHandsfree";
-import { getSpeakers } from "../services/apiSpeakers";
-import { getSmartWatches } from "../services/apiSmartWatches";
+import { focusInput, searchProductsResult } from "../features/user/userSlice";
 
-const mobiles = await getMobiles();
-const tablets = await getTablets();
-const handsfrees = await getHandsfree();
-const speakers = await getSpeakers();
-const smartWatches = await getSmartWatches();
 
-export default function SearchBox() {
+export default function SearchBox({ allProducts }) {
   const dispatch = useDispatch();
   const [searchValue, setSearchValue] = useState("");
 
-  const allProducts = [
-    ...mobiles,
-    ...tablets,
-    ...smartWatches,
-    ...tablets,
-    ...handsfrees,
-    ...speakers,
-  ];
   let filteredProducts;
 
   if (searchValue.length > 0) {
