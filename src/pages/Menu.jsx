@@ -1,8 +1,8 @@
 import React from "react";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import logo from "../assets/images/logo-light.png";
 import { Link, NavLink } from "react-router-dom";
-import { focusInput } from "../features/user/userSlice";
+import { focusInput, focusMenu } from "../features/user/userSlice";
 import { FaHome, FaMobileAlt } from "react-icons/fa";
 import { IoTabletPortraitSharp, IoWatch } from "react-icons/io5";
 import { FaHeadphones } from "react-icons/fa6";
@@ -14,14 +14,15 @@ export default function Menu() {
   return (
     <div className="my-10 flex h-screen w-screen flex-col items-center gap-5">
       <Link to="/">
-        <img alt="logo" src={logo} className="w-24 mb-5"></img>
+        <img alt="logo" src={logo} className="mb-5 w-24"></img>
       </Link>
       <ul className="flex flex-col items-center gap-y-3">
         <li
           onClick={() => {
             dispatch(focusInput(false));
+            dispatch(focusMenu(false));
           }}
-          className="rounded-lg p-2 border-b-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
+          className="rounded-lg border-b-2 p-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
         >
           <NavLink to="/" className="flex items-center gap-x-3">
             <span>
@@ -33,8 +34,9 @@ export default function Menu() {
         <li
           onClick={() => {
             dispatch(focusInput(false));
+            dispatch(focusMenu(false));
           }}
-          className="rounded-lg p-2 border-b-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
+          className="rounded-lg border-b-2 p-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
         >
           <NavLink to="/mobiles" className="flex items-center gap-x-3">
             <span>
@@ -46,8 +48,9 @@ export default function Menu() {
         <li
           onClick={() => {
             dispatch(focusInput(false));
+            dispatch(focusMenu(false));
           }}
-          className="rounded-lg p-2 border-b-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
+          className="rounded-lg border-b-2 p-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
         >
           <NavLink to="/tablets" className="flex items-center gap-x-3">
             <span>
@@ -59,8 +62,9 @@ export default function Menu() {
         <li
           onClick={() => {
             dispatch(focusInput(false));
+            dispatch(focusMenu(false));
           }}
-          className="rounded-lg p-2 border-b-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
+          className="rounded-lg border-b-2 p-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
         >
           <NavLink to="/smartWatches" className="flex items-center gap-x-3">
             <span>
@@ -72,8 +76,9 @@ export default function Menu() {
         <li
           onClick={() => {
             dispatch(focusInput(false));
+            dispatch(focusMenu(false));
           }}
-          className="rounded-lg p-2 border-b-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
+          className="rounded-lg border-b-2 p-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
         >
           <NavLink to="/handsfrees" className="flex items-center gap-x-3">
             <span>
@@ -85,8 +90,9 @@ export default function Menu() {
         <li
           onClick={() => {
             dispatch(focusInput(false));
+            dispatch(focusMenu(false));
           }}
-          className="rounded-lg p-2 border-b-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
+          className="rounded-lg border-b-2 p-2 text-2xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark"
         >
           <NavLink to="/speakers" className="flex items-center gap-x-3">
             <span>

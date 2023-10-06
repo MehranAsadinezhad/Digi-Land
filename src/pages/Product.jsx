@@ -21,14 +21,13 @@ import {
   MdLocalFireDepartment,
   MdPriceChange,
 } from "react-icons/md";
-import CartButton from "../ui/CartButton";
 import { useDispatch, useSelector } from "react-redux";
 import UpdateItemQuantity from "../ui/UpdateItemQuantity";
 import { addItem } from "../features/cart/cartSlice";
 import toast from "react-hot-toast";
 import { getAllProducts } from "../services/apiAllProducst";
 
-export default function Product({  }) {
+export default function Product() {
   const allProducts = useLoaderData();
   const { productId } = useParams();
   const dispatch = useDispatch();
@@ -44,7 +43,7 @@ export default function Product({  }) {
 
   return (
     <div className="my-5 px-3">
-      <h1 className="text-center font-shabnamBold text-xl text-dark sm:my-10 sm:text-3xl">
+      <h1 className="text-start font-shabnamBold text-xl text-dark sm:my-10 sm:text-3xl">
         {theProduct?.name}
       </h1>
       <div className="flex flex-col items-center lg:grid lg:grid-cols-3 lg:place-items-center">
@@ -53,79 +52,79 @@ export default function Product({  }) {
           src={theProduct?.image}
           alt={theProduct?.id}
         ></img>
-        <div className="flex flex-col gap-4">
-          <p className="border-b-2 border-dashed border-primary py-2 font-shabnamBold text-xl text-grey">
+        <div className="flex flex-col gap-5">
+          <p className="border-b-2 border-dashed border-primary py-2 font-shabnamBold text-lg tracking-wide text-grey sm:text-2xl">
             ویژگی های اصلی
           </p>
-          <ul className="flex flex-col gap-2 text-lg text-grey">
+          <ul className="flex flex-col gap-2 text-grey">
             {theProduct?.cpu && (
-              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-base">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-lg">
                 <BsCpu />
                 <span>پردازنده / {theProduct.cpu}</span>
               </li>
             )}
             {theProduct?.screen && (
-              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-base">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-lg">
                 <BsFullscreenExit />
                 <span>صفحه نمایش / {theProduct?.screen} اینچ</span>
               </li>
             )}
             {theProduct?.speaker && (
-              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-base">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-lg">
                 <BsSpeaker />
                 <span>{theProduct?.speaker}</span>
               </li>
             )}
             {theProduct?.ram && (
-              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-base">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-lg">
                 <BsDiagram3 />
                 <span>رم / {theProduct?.ram} گیگابایت رم</span>
               </li>
             )}
             {theProduct?.mainCamera && (
-              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-base">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-lg">
                 <FaCamera />
                 <span>دوربین اصلی / {theProduct?.mainCamera} مگا پیکسل</span>
               </li>
             )}
             {theProduct?.selfieCamera && (
-              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-base">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-lg">
                 <FaCamera />
                 <span>دوربین سلفی / {theProduct?.selfieCamera} مگا پیکسل</span>
               </li>
             )}
             {theProduct?.battery && (
-              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-base">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-lg">
                 <FaBatteryFull />
                 <span>باتری / {theProduct?.battery} میلی آمپر ساعت</span>
               </li>
             )}
             {theProduct?.resistance && (
-              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-base">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-lg">
                 <BsFullscreenExit />
                 <span>مقاومت / {theProduct?.resistance}</span>
               </li>
             )}
             {theProduct?.storage && (
-              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-base">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-lg">
                 <MdSdStorage />
                 <span>حافظه ی داخلی / {theProduct?.storage} گیگابایت</span>
               </li>
             )}
             {theProduct?.weight && (
-              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-base">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-lg">
                 <FaWeightHanging />
                 <span>وزن / {theProduct?.weight}</span>
               </li>
             )}
             {theProduct?.call && (
-              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-base">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-lg">
                 <BsFillTelephoneForwardFill />
                 <span>قابلیت تماس / {theProduct?.call ? "دارد" : "ندارد"}</span>
               </li>
             )}
             {theProduct?.bluetooth && (
-              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-base">
+              <li className="flex items-center gap-x-3 border-b-2 border-lightGrey pb-2 text-sm sm:text-lg">
                 <FaBluetooth />
                 <span>بلوتوث / {theProduct?.bluetooth} ورژن</span>
               </li>
@@ -133,23 +132,23 @@ export default function Product({  }) {
           </ul>
         </div>
         <div className="my-5 flex flex-col items-center">
-          <h1 className="mb-5 flex items-center gap-x-3 border-b-2 border-dashed border-grey py-2 text-3xl text-grey">
-            <MdTimer className="text-6xl text-primary" /> ارسال سریع
+          <h1 className="mb-5 flex items-center gap-x-3 border-b-2 border-dashed border-grey py-2 text-2xl text-grey sm:text-3xl">
+            <MdTimer className="text-4xl text-primary sm:text-6xl" /> ارسال سریع
           </h1>
           <span></span>
-          <h1 className="my-3 flex items-center gap-x-3 text-lg text-grey">
+          <h1 className="my-3 flex items-center gap-x-3 text-xl text-grey">
             <FaStore className="text-xl text-dark" /> فروشنده: مهران اسدی نژاد
           </h1>
-          <h1 className="my-3 flex items-center gap-x-3 text-lg text-grey">
+          <h1 className="my-3 flex items-center gap-x-3 text-xl text-grey">
             <MdLocalFireDepartment className="text-2xl text-orange-500" /> 18
             ماه گارانتی شرکتی
           </h1>
-          <h1 className="mb-5 mt-3 flex items-center gap-x-3 text-lg text-grey">
+          <h1 className="mb-5 mt-3 flex items-center gap-x-3 text-xl text-grey">
             <MdPriceChange className="text-2xl text-green-500" /> قیمت:{" "}
             {separate(theProduct.price)}
           </h1>
           {!isInCart ? (
-            <CartButton
+            <button
               onClick={() => {
                 const newItem = {
                   ...theProduct,
@@ -159,17 +158,17 @@ export default function Product({  }) {
                 dispatch(addItem(newItem));
                 toast.success("محصول به سبد خرید اضافه شد");
               }}
-              className="rounded-xl bg-primary px-3 py-1.5 text-medium transition-all duration-200 hover:bg-sky-600"
+              className="rounded-xl bg-primary px-3 py-2 text-lg text-medium transition-all duration-200 hover:bg-sky-600"
             >
               افزودن به سبد خرید
-            </CartButton>
+            </button>
           ) : (
             <UpdateItemQuantity data={theProduct} />
           )}
         </div>
       </div>
       <div className="sm:my-10">
-        <h1 className="border-b-2 border-primary pb-3 font-shabnamBold text-2xl text-primary">
+        <h1 className="border-b-2 border-primary pb-3 font-shabnamBold text-xl text-primary sm:text-2xl">
           بررسی فنی
         </h1>
         <p className="my-3 text-grey sm:text-lg">{theProduct.description}</p>

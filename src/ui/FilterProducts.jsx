@@ -20,7 +20,7 @@ export default function FilterProducts({ products, setSorted }) {
   }
 
   return (
-    <div className="flex items-center gap-x-3 justify-center p-2 sm:gap-x-5 sm:px-4 sm:py-5">
+    <div className="flex items-center flex-wrap gap-3 justify-center p-2 sm:gap-x-5 sm:px-4 sm:py-5">
       <h1 className="font-shabnamBold sm:text-lg">فیلتر:</h1>
       <button
         onClick={sortMax}

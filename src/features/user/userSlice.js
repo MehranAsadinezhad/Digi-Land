@@ -4,7 +4,8 @@ const initialState = {
   username: "",
   auth: false,
   searchProducts: [],
-  focusInp:false,
+  focusInp: false,
+  menu: false,
 };
 
 const userSlice = createSlice({
@@ -20,17 +21,26 @@ const userSlice = createSlice({
     searchProductsResult(state, action) {
       state.searchProducts = action.payload;
     },
-    focusInput(state,action){
+    focusInput(state, action) {
       state.focusInp = action.payload;
+    },
+    focusMenu(state, action) {
+      state.menu = action.payload;
     },
   },
 });
 
-export const { addUsername,userLogined,focusInput, searchProductsResult } =
-  userSlice.actions;
+export const {
+  addUsername,
+  userLogined,
+  focusMenu,
+  focusInput,
+  searchProductsResult,
+} = userSlice.actions;
 export default userSlice.reducer;
 
 export const getUsername = (state) => state.user.username;
 export const getAuth = (state) => state.user.auth;
 export const getSearchProductsResult = (state) => state.user.searchProducts;
-export const getFocusInp = (state)=> state.user.focusInp;
+export const getFocusInp = (state) => state.user.focusInp;
+export const getFocusMenu = (state) => state.user.menu;

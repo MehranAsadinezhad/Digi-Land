@@ -1,17 +1,24 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
-import { FaUser, FaCartShopping } from "react-icons/fa6";
-import { useSelector } from "react-redux";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { FaUser, FaCartShopping, FaXmark } from "react-icons/fa6";
+import { useDispatch, useSelector } from "react-redux";
 import { getCard } from "../features/cart/cartSlice";
-import { getAuth, getUsername } from "../features/user/userSlice";
-
+import {
+  focusMenu,
+  getAuth,
+  getFocusMenu,
+  getUsername,
+} from "../features/user/userSlice";
 import SearchBox from "./SearchBox";
 import { GrMenu } from "react-icons/gr";
 
-export default function Header({allProducts}) {
+export default function Header({ allProducts }) {
   const cart = useSelector(getCard);
   const auth = useSelector(getAuth);
   const username = useSelector(getUsername);
+  const menu = useSelector(getFocusMenu);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <header className="col-span-12 flex flex-col justify-around gap-x-2 border-b-2 bg-white md:flex md:flex-row md:items-center md:justify-between md:px-8">
@@ -25,12 +32,27 @@ export default function Header({allProducts}) {
         <SearchBox allProducts={allProducts} />
       </div>
       <div className="flex items-center justify-around gap-x-5 sm:gap-x-10">
-        <NavLink
-          to="/menu"
-          className="rounded-lg text-xl text-grey transition-colors duration-200 hover:bg-lightGrey hover:text-dark sm:p-2 sm:text-xl md:hidden"
-        >
-          <GrMenu />
-        </NavLink>
+        {!menu ? (
+          <button
+            onClick={() => {
+              navigate("/menu");
+              dispatch(focusMenu(true));
+            }}
+            className="rounded-lg text-xl text-grey transition-colors duration-200 sm:p-2 sm:text-xl md:hidden"
+          >
+            <GrMenu className="text-xl" />
+          </button>
+        ) : (
+          <botton
+            onClick={() => {
+              navigate(-1);
+              dispatch(focusMenu(false));
+            }}
+            className="rounded-lg text-xl text-grey transition-colors duration-200 sm:p-2 sm:text-xl md:hidden"
+          >
+            <FaXmark className="text-xl text-red-600" />
+          </botton>
+        )}
         {!auth ? (
           <NavLink
             to="/signup"
@@ -39,7 +61,7 @@ export default function Header({allProducts}) {
             <FaUser />
           </NavLink>
         ) : (
-          <h1 className="font-shabnamBold sm:text-xl text-primary">
+          <h1 className="font-shabnamBold text-primary sm:text-xl">
             {username}
           </h1>
         )}
