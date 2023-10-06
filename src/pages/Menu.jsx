@@ -13,9 +13,7 @@ export default function Menu() {
   // const visibleMenu = useSelector(getVisibleMenu);
   return (
     <div className="my-10 flex h-screen w-screen flex-col items-center gap-5">
-      <Link to="/">
-        <img alt="logo" src={logo} className="mb-5 w-40 rounded-full"></img>
-      </Link>
+      <img alt="logo" src={logo} className="mb-5 w-40 rounded-full"></img>
       <ul className="flex flex-col items-center gap-y-3">
         <li
           onClick={() => {
