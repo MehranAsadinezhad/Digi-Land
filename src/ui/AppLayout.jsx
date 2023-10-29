@@ -6,7 +6,7 @@ import Loader from "./Loader";
 import { Toaster } from "react-hot-toast";
 import SearchResult from "./SearchResult";
 
-export default function AppLayout({allProducts}) {
+export default function AppLayout({ allProducts }) {
   const navigation = useNavigation();
   const isLoading = navigation.state === "loading";
 
